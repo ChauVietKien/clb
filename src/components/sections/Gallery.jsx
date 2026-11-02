@@ -21,20 +21,20 @@ export default function Gallery() {
       : gallery;
 
   return (
-    <section className="py-20 bg-slate-950/40 dark:bg-black/30 text-center relative overflow-hidden">
+    <section className="py-16 bg-gray-100 dark:bg-gray-900 text-center overflow-hidden">
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 35 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.7 }}
-        className="mb-8"
+        transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        <span className="px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-300 border border-amber-500/20">
-          Khoảnh Khắc Đẹp
-        </span>
-        <h2 className="text-3xl sm:text-4xl font-bold mt-3 text-white">
-          Phòng Trưng Bày
-        </h2>
+        <motion.h2
+          animate={{ y: [-4, 4, -4] }}
+          transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
+          className="text-3xl font-bold mb-8"
+        >
+          Phòng trưng bày
+        </motion.h2>
       </motion.div>
       <div className="w-full py-6 sm:py-10 px-4 overflow-hidden select-none">
         <div className="max-w-5xl mx-auto min-h-[220px] sm:min-h-[280px] md:min-h-[360px]">
