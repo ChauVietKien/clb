@@ -21,17 +21,17 @@ export default function Gallery() {
       : gallery;
 
   return (
-    <section className="py-16 bg-gray-100 dark:bg-gray-900 text-center overflow-hidden">
+    <section className="py-12 sm:py-16 bg-gray-100 dark:bg-gray-900 text-center overflow-hidden">
       <motion.div
-        initial={{ opacity: 0, y: 35 }}
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
         <motion.h2
-          animate={{ y: [-4, 4, -4] }}
-          transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
-          className="text-3xl font-bold mb-8"
+          animate={{ y: [-2, 2, -2] }}
+          transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
+          className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8"
         >
           Phòng trưng bày
         </motion.h2>
