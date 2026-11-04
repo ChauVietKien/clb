@@ -131,8 +131,8 @@
     @apply font-sans;
   }
 
-  /* Xóa hết bg mặc định toàn web – Vanta sẽ là nền duy nhất */
-  section, div, nav, footer, main, header, aside {
+  /* Xóa bg mặc định cho các thẻ bố cục chính để Vanta là nền web */
+  section, main {
     background-color: transparent !important;
     background-image: none !important;
   }

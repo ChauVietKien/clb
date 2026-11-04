@@ -1,18 +1,51 @@
-// Mock events data
+// Dữ liệu danh sách sự kiện (Events)
 export const events = [
   {
     id: 1,
-    title: "Annual Meetup",
-    date: "2024-09-10",
-    image: "/images/events/meetup.jpg",
-    description: "Gathering of all members for networking and workshops.",
+    time: "Tết Nguyên Đán",
+    title: "Cúng Lễ Phật Đầu Năm — Cầu An Đầu Xuân",
+    description:
+      "Nghi lễ dâng hương, tụng kinh cầu bình an cho gia đạo và đón nhận lộc xuân đầu năm tại chùa Châu Hoằng Liên Xã.",
+    image: "/images/ev1.jpg",
   },
   {
     id: 2,
-    title: "Hackathon",
-    date: "2024-11-05",
-    image: "/images/events/hackathon.jpg",
-    description: "24‑hour coding marathon with prizes.",
+    time: "Rằm tháng 4 Âm Lịch",
+    title: "Đại Lễ Phật Đản",
+    description:
+      "Kỷ niệm ngày đản sinh của Đức Bổn Sư Thích Ca Mâu Ni với nghi thức tắm Phật truyền thống, hoạt động sinh hoạt và thắp nến hoa đăng.",
+    image: "/images/ev22.jpg",
   },
-  // Add more events as needed
+  {
+    id: 3,
+    time: "Tháng 7 - Tháng 8",
+    title: "Khóa Tu Mùa Hè — Bồi dưỡng",
+    description:
+      "Chương trình tu học thường niên dành cho thanh thiếu niên phật tử: học giáo lý, rèn luyện kỹ năng mềm, thiền tập và giao lưu gắn kết.",
+    image: "/images/ev3.jpg",
+  },
+  {
+    id: 4,
+    time: "Tháng 7 Âm Lịch",
+    title: "Đại Lễ Vu Lan — Báo Hiếu",
+    description:
+      "Nghi thức cài hoa hồng thiêng liêng và dâng pháp y, bày tỏ lòng tri ân sâu sắc đến công ơn sinh thành dưỡng dục của cha mẹ tổ tiên.",
+    image: "/images/ev4.jpg",
+  },
+  {
+    id: 5,
+    time: "Rằm Tháng 8",
+    title: "Đêm Hội Trăng Rằm — Trung Thu",
+    description:
+      "Ngày hội Trung Thu rộn ràng dành cho các em thiếu nhi với múa lân, rước đèn ông sao, phá cỗ và trao các phần quà khuyến học ý nghĩa.",
+    image: "/images/ev5.jpg",
+  },
+  {
+    id: 6,
+    time: "Kỷ niệm CLB",
+    title: "Kết nối thành viên",
+    description:
+      "Hoạt động vui chơi, sinh hoạt, trao đổi và nêu những mục tiêu liên quan trong năm, sắp tới.",
+    image: "/images/ev6.jpg",
+  },
 ];
