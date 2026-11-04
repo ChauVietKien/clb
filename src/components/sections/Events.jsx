@@ -37,7 +37,7 @@ export default function Events() {
           {events.map((item) => (
             <Card
               key={item.id}
-              className="relative w-full h-full flex flex-col p-0 py-0 gap-0 overflow-hidden group bg-white dark:bg-[#121622] border border-gray-200/90 dark:border-gray-800 rounded-xl sm:rounded-2xl shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 max-w-md mx-auto sm:max-w-none"
+              className="relative w-full h-full flex flex-col p-0 py-0 gap-0 overflow-hidden group bg-[#fff8f4]/92 dark:bg-[#151924]/92 backdrop-blur-md border border-[#edd7cb] dark:border-gray-800/80 rounded-xl sm:rounded-2xl shadow-sm hover:shadow-md hover:border-amber-300/80 dark:hover:border-amber-500/50 hover:-translate-y-0.5 transition-all duration-300 max-w-md mx-auto sm:max-w-none"
             >
               {/* Ảnh bìa chuẩn tỷ lệ 16:9, tối ưu hiển thị responsive */}
               <div className="relative w-full aspect-[16/9] overflow-hidden bg-gray-100 dark:bg-gray-900">

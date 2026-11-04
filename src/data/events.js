@@ -34,18 +34,18 @@ export const events = [
   },
   {
     id: 5,
+    time: "Tháng 8",
+    title: "Kỷ niệm câu lạc bộ",
+    description:
+      "Hoạt động vui chơi, sinh hoạt, trao đổi và nêu những mục tiêu liên quan trong năm, sắp tới.",
+    image: "/images/ev6.jpg",
+  },
+  {
+    id: 6,
     time: "Rằm Tháng 8",
     title: "Đêm Hội Trăng Rằm — Trung Thu",
     description:
       "Ngày hội Trung Thu rộn ràng dành cho các em thiếu nhi với múa lân, rước đèn ông sao, phá cỗ và trao các phần quà khuyến học ý nghĩa.",
     image: "/images/ev5.jpg",
-  },
-  {
-    id: 6,
-    time: "Kỷ niệm CLB",
-    title: "Kết nối thành viên",
-    description:
-      "Hoạt động vui chơi, sinh hoạt, trao đổi và nêu những mục tiêu liên quan trong năm, sắp tới.",
-    image: "/images/ev6.jpg",
   },
 ];

@@ -23,7 +23,7 @@ export default function Hero() {
               Chào Mừng Đến Với
             </span>
             <span className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-amber-300 mt-1 sm:mt-2 whitespace-nowrap tracking-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
-              CLB Châu Hoằng Liên Xã
+              CLB Chùa Châu Hoằng Liên Xã
             </span>
           </h1>
 
@@ -45,7 +45,7 @@ export default function Hero() {
           className="w-full h-[260px] sm:h-[420px] md:h-[580px] lg:h-[720px] overflow-hidden relative rounded-2xl sm:rounded-3xl shadow-xl shadow-black/50"
         >
           <Image
-            src="https://scontent.fdad1-1.fna.fbcdn.net/v/t39.30808-6/825353234_122244915326094551_6417768744104616782_n.jpg?stp=cp6_dst-jpg_tt6&cstp=mx1440x1080&ctp=s1440x1080&_nc_cat=109&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEJ3eTaNklh_uWg--iZJevhxMuZxkv61RnEy5nGS_rVGSN98sazc4Tcsym7kjEnf_8DPYd6CAth_FsvwuFYgnav&_nc_ohc=anNSyiMTppoQ7kNvwFIV_-4&_nc_oc=AdrbkTo_I81YTjtpZlvZexx7WT5wIJKmkF5gIxF1MaU9hqTQm1WqEGnaGKRQvMZl7aM&_nc_zt=23&_nc_ht=scontent.fdad1-1.fna&_nc_gid=SCJEE58BJrB6OO2TL1mVtQ&_nc_ss=7b2a8&oh=00_AQRKN9n5ipCykruD2-5fMtL8RW7LW8xN2NTwLv13u8h49Q&oe=6AEDFD6F"
+            src="/images/hero-banner.jpg"
             alt="Club Banner"
             fill
             priority

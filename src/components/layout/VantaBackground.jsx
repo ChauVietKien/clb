@@ -5,11 +5,14 @@ export default function VantaBackground({ children }) {
   const ref = useRef(null);
 
   useEffect(() => {
-    let effect;
+    let effect = null;
+    let isMounted = true;
 
     const loadVanta = async () => {
       const THREE = await import("three");
       const VANTA = await import("vanta/dist/vanta.fog.min");
+
+      if (!isMounted || !ref.current) return;
 
       effect = VANTA.default({
         el: ref.current,
@@ -32,6 +35,7 @@ export default function VantaBackground({ children }) {
     loadVanta().catch(console.error);
 
     return () => {
+      isMounted = false;
       if (effect) effect.destroy();
     };
   }, []);

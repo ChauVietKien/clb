@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export default function Members() {
   return (
-    <section className="py-12 sm:py-16 bg-white dark:bg-gray-900 text-center overflow-hidden">
+    <section className="py-12 sm:py-16 bg-transparent text-center overflow-hidden">
       <motion.h2
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -17,7 +17,7 @@ export default function Members() {
         Tổng quan thành viên chính
       </motion.h2>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 sm:gap-6 md:gap-8 max-w-5xl mx-auto px-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6 md:gap-6 max-w-6xl mx-auto px-4">
         {members.map((member, idx) => (
           <motion.div
             key={member.id}

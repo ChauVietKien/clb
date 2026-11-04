@@ -1,17 +1,17 @@
 "use client";
 
+import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
 import styles from "./Navbar.module.css";
 
 const navLinks = [
-  { href: "/#about", label: "About", id: "about" },
-  { href: "/#gallery", label: "Gallery", id: "gallery" },
-  { href: "/#events", label: "Events", id: "events" },
-  { href: "/#members", label: "Members", id: "members" },
-  { href: "/#format", label: "Method", id: "format" },
+  { href: "/#about", label: "Tổng quan", id: "about" },
+  { href: "/#gallery", label: "Trưng bày", id: "gallery" },
+  { href: "/#events", label: "Sự kiện", id: "events" },
+  { href: "/#members", label: "Thành viên", id: "members" },
+  { href: "/#format", label: "Phương thức", id: "format" },
 ];
 
 export default function Navbar() {
@@ -46,11 +46,15 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className={styles.logo}>
-            <Link href="/" className={styles.logoLink}>
+            <Link
+              href="/"
+              className={styles.logoLink}
+              onClick={() => setMobileMenuOpen(false)}
+            >
               <div className="relative w-9 h-9 sm:w-11 sm:h-11 shrink-0">
                 <Image
                   className={styles.logoImage}
-                  src="https://scontent.fdad1-4.fna.fbcdn.net/v/t39.30808-1/397984607_122102363690094551_8565278122462374757_n.jpg?stp=dst-jpg_tt6&cstp=mx960x960&ctp=s200x200&_nc_cat=108&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=2d3e12&_nc_eui2=AeExqHhYBglHT_QHS3ljdHtDc2Qiiz-sjvFzZCKLP6yO8XUhfmwVI-sN-3Be3aXMnaz10K7umW2tjpG1oMaGFIXS&_nc_ohc=Pi2ATkkFsl4Q7kNvwFnh8Tz&_nc_oc=Adqd8d8xW-NlYb6bheX72mCTUnNRocNu0V6Nri50Gv_pzZjuA1JsyhFHIwTVQyQawfs&_nc_zt=24&_nc_ht=scontent.fdad1-4.fna&_nc_gid=BDc7NYPijRCPrxW9iblxIw&_nc_ss=7b2a8&oh=00_AQTWVTArCxIzKlG6Pere6oWSdMhdN_eoD0-9p_BA-lGPug&oe=6AED491B"
+                  src="/images/logo.jpg"
                   alt="CLB Logo"
                   fill
                   sizes="(max-width: 640px) 36px, 44px"
@@ -59,7 +63,9 @@ export default function Navbar() {
               </div>
               <p className={styles.logoText}>
                 CLB TTN Phật Tử Chùa{" "}
-                <span className="inline-block whitespace-nowrap">Châu Hoằng</span>{" "}
+                <span className="inline-block whitespace-nowrap">
+                  Châu Hoằng
+                </span>{" "}
                 <span className="inline-block whitespace-nowrap">Liên Xã</span>
               </p>
             </Link>
