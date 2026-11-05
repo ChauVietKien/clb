@@ -21,26 +21,17 @@ export default function Members() {
         {members.map((member, idx) => (
           <motion.div
             key={member.id}
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: true, amount: 0.15 }}
             transition={{
-              duration: 0.8,
-              delay: idx * 0.08,
+              duration: 0.5,
+              delay: idx * 0.06,
               ease: "easeOut",
             }}
             className="flex flex-col items-center group p-2"
           >
-            <motion.div
-              animate={{ y: [-2, 2, -2] }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: (idx % 3) * 0.5,
-              }}
-              className="relative w-20 h-20 sm:w-24 sm:h-24 mb-3 sm:mb-4 rounded-full overflow-hidden shadow-lg shadow-black/20 ring-2 ring-amber-400/30 group-hover:ring-amber-400 transition-all group-hover:scale-105"
-            >
+            <div className="relative w-20 h-20 sm:w-24 sm:h-24 mb-3 sm:mb-4 rounded-full overflow-hidden shadow-md shadow-black/15 ring-2 ring-amber-400/30 group-hover:ring-amber-400 transition-all duration-300 group-hover:scale-105">
               <Image
                 src={member.avatar}
                 alt={member.name}
@@ -49,7 +40,7 @@ export default function Members() {
                 className="object-cover"
                 loading="lazy"
               />
-            </motion.div>
+            </div>
             <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-800 dark:text-gray-200">
               {member.name}
             </h3>

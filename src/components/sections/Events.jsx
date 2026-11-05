@@ -15,22 +15,17 @@ export default function Events() {
   return (
     <section className="py-8 sm:py-12 md:py-16 bg-transparent text-center overflow-hidden">
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 25 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.1 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.15 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
       >
-        <motion.div
-          animate={{ y: [-2, 2, -2] }}
-          transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
-        >
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 sm:mb-3 text-gray-900 dark:text-gray-100">
-            Những sự kiện hằng năm
-          </h2>
-          <p className="max-w-2xl mx-auto text-xs sm:text-sm md:text-base text-gray-700 dark:text-gray-300 px-4 mb-6 sm:mb-8 md:mb-10 font-medium">
-            Tổng hợp các hoạt động, đại lễ và chương trình sinh hoạt định kỳ của câu lạc bộ.
-          </p>
-        </motion.div>
+        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 sm:mb-3 text-gray-900 dark:text-gray-100">
+          Những sự kiện hằng năm
+        </h2>
+        <p className="max-w-2xl mx-auto text-xs sm:text-sm md:text-base text-gray-700 dark:text-gray-300 px-4 mb-6 sm:mb-8 md:mb-10 font-medium">
+          Tổng hợp các hoạt động, đại lễ và chương trình sinh hoạt định kỳ của câu lạc bộ.
+        </p>
 
         {/* Bố cục đa màn hình: 1 cột (mobile) -> 2 cột (tablet/sm) -> 3 cột (desktop/lg) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-left">

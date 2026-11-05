@@ -7,16 +7,12 @@ export default function Hero() {
   return (
     <section className="flex flex-col items-center justify-center text-white pt-24 pb-12 sm:pt-28 sm:pb-16 overflow-hidden">
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 25 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
         className="flex flex-col items-center text-center px-4"
       >
-        <motion.div
-          animate={{ y: [-2, 2, -2] }}
-          transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
-          className="flex flex-col items-center"
-        >
+        <div className="flex flex-col items-center">
           {/* Tiêu đề 2 dòng có nghĩa, không bao giờ rớt chữ CLB */}
           <h1 className="mb-3 sm:mb-4 flex flex-col items-center justify-center text-center leading-tight">
             <span className="text-xl sm:text-3xl md:text-5xl font-bold text-white whitespace-nowrap tracking-tight">
@@ -30,20 +26,16 @@ export default function Hero() {
           <p className="text-sm sm:text-base md:text-lg max-w-2xl text-center mb-6 sm:mb-8 text-gray-200">
             Kết nối cộng đồng với những sự kiện, thành viên và cơ hội giá trị.
           </p>
-        </motion.div>
+        </div>
       </motion.div>
 
       <motion.div
-        initial={{ opacity: 0, y: 35 }}
+        initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+        transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
         className="w-full max-w-6xl mx-auto px-3 sm:px-6"
       >
-        <motion.div
-          animate={{ y: [-2.5, 2.5, -2.5] }}
-          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-          className="w-full h-[260px] sm:h-[420px] md:h-[580px] lg:h-[720px] overflow-hidden relative rounded-2xl sm:rounded-3xl shadow-xl shadow-black/50"
-        >
+        <div className="w-full h-[260px] sm:h-[420px] md:h-[580px] lg:h-[720px] overflow-hidden relative rounded-2xl sm:rounded-3xl shadow-xl shadow-black/50">
           <Image
             src="/images/hero-banner.jpg"
             alt="Club Banner"
@@ -58,7 +50,7 @@ export default function Hero() {
                 "linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)",
             }}
           />
-        </motion.div>
+        </div>
       </motion.div>
     </section>
   );

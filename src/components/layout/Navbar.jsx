@@ -41,6 +41,15 @@ export default function Navbar() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") setMobileMenuOpen(false);
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [mobileMenuOpen]);
+
   return (
     <nav className="backdrop-blur-sm bg-black/20 shadow-md fixed w-full z-30 top-0 left-0 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -109,25 +118,34 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile nav list dropdown */}
+      {/* Mobile nav floating popover (chiếm nửa phải, tránh che lấp nội dung) */}
       {mobileMenuOpen && (
-        <div className="md:hidden backdrop-blur-md bg-[rgba(220,100,15,0.85)] border-t border-orange-300/25 px-4 pt-2 pb-4 space-y-1 shadow-lg">
-          {navLinks.map(({ href, label, id }) => (
-            <Link
-              key={id}
-              href={href}
-              onClick={() => setMobileMenuOpen(false)}
-              className={[
-                "block px-3.5 py-2.5 rounded-lg text-base font-medium transition-colors",
-                activeSection === id
-                  ? "text-yellow-200 bg-black/15 font-semibold"
-                  : "text-white/95 hover:text-white hover:bg-black/10",
-              ].join(" ")}
-            >
-              {label}
-            </Link>
-          ))}
-        </div>
+        <>
+          {/* Lớp nền trong suốt click-outside đóng menu */}
+          <div
+            className="fixed inset-0 z-20 md:hidden"
+            onClick={() => setMobileMenuOpen(false)}
+            aria-hidden="true"
+          />
+          {/* Popover menu trôi nổi bên phải */}
+          <div className="absolute right-3 sm:right-6 top-16 z-30 md:hidden w-56 sm:w-60 backdrop-blur-xl bg-[rgba(215,85,15,0.94)] border border-orange-300/35 rounded-2xl p-2 space-y-1 shadow-2xl shadow-black/40">
+            {navLinks.map(({ href, label, id }) => (
+              <Link
+                key={id}
+                href={href}
+                onClick={() => setMobileMenuOpen(false)}
+                className={[
+                  "block px-3.5 py-2.5 rounded-xl text-sm font-semibold transition-all",
+                  activeSection === id
+                    ? "text-yellow-200 bg-black/25 shadow-xs"
+                    : "text-white/95 hover:text-white hover:bg-black/15",
+                ].join(" ")}
+              >
+                {label}
+              </Link>
+            ))}
+          </div>
+        </>
       )}
     </nav>
   );

@@ -5,6 +5,7 @@ const nextConfig = {
   partialPrefetching: true,
   turbopack: {},
   images: {
+    formats: ["image/avif", "image/webp"],
     remotePatterns: [
       {
         protocol: "https",
