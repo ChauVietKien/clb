@@ -8,20 +8,6 @@ export const members = [
     bio: "Passionate about community building and events.",
   },
   {
-    id: 2,
-    name: "Võ Văn Huy",
-    role: "Cựu thành viên",
-    avatar: "/images/huyvo12.jpg",
-    bio: "Loves organizing workshops and meetups.",
-  },
-  {
-    id: 3,
-    name: "Nguyễn Xuân Minh",
-    role: "Phó phụ trách",
-    avatar: "/images/minh.jpg",
-    bio: "Loves organizing workshops and meetups.",
-  },
-  {
     id: 4,
     name: "Nguyễn Diệp",
     role: "Phó phụ trách",
@@ -33,6 +19,20 @@ export const members = [
     name: "Ánh Ly",
     role: "Phó Phụ Trách",
     avatar: "/images/lyanh.jpg",
+    bio: "Loves organizing workshops and meetups.",
+  },
+  {
+    id: 3,
+    name: "Nguyễn Xuân Minh",
+    role: "Phó phụ trách",
+    avatar: "/images/minh.jpg",
+    bio: "Loves organizing workshops and meetups.",
+  },
+  {
+    id: 2,
+    name: "Võ Văn Huy",
+    role: "Cựu thành viên",
+    avatar: "/images/huyvo12.jpg",
     bio: "Loves organizing workshops and meetups.",
   },
   {

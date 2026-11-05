@@ -136,4 +136,10 @@
     background-color: transparent !important;
     background-image: none !important;
   }
+
+  /* Tăng độ đậm màu, độ tương phản và chiều sâu cho toàn bộ hình ảnh trên web */
+  img {
+    filter: contrast(1.06) saturate(1.15);
+    image-rendering: auto;
+  }
 }

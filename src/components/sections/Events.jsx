@@ -40,7 +40,7 @@ export default function Events() {
               className="relative w-full h-full flex flex-col p-0 py-0 gap-0 overflow-hidden group bg-[#fff8f4]/92 dark:bg-[#151924]/92 backdrop-blur-md border border-[#edd7cb] dark:border-gray-800/80 rounded-xl sm:rounded-2xl shadow-sm hover:shadow-md hover:border-amber-300/80 dark:hover:border-amber-500/50 hover:-translate-y-0.5 transition-all duration-300 max-w-md mx-auto sm:max-w-none"
             >
               {/* Ảnh bìa chuẩn tỷ lệ 16:9, tối ưu hiển thị responsive */}
-              <div className="relative w-full aspect-[16/9] overflow-hidden bg-gray-100 dark:bg-gray-900">
+              <div className="relative w-full aspect-[16/9] overflow-hidden bg-gray-900">
                 <Image
                   src={item.image}
                   alt={item.title}
@@ -49,6 +49,7 @@ export default function Events() {
                   className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                   loading="lazy"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent pointer-events-none" />
               </div>
 
               {/* Khối thông tin: tự co giãn đều hàng (flex-1), chữ co theo kích thước thiết bị */}

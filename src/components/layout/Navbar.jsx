@@ -111,17 +111,17 @@ export default function Navbar() {
 
       {/* Mobile nav list dropdown */}
       {mobileMenuOpen && (
-        <div className="md:hidden backdrop-blur-xl bg-black/90 border-t border-white/10 px-4 pt-2 pb-4 space-y-1">
+        <div className="md:hidden backdrop-blur-md bg-[rgba(220,100,15,0.85)] border-t border-orange-300/25 px-4 pt-2 pb-4 space-y-1 shadow-lg">
           {navLinks.map(({ href, label, id }) => (
             <Link
               key={id}
               href={href}
               onClick={() => setMobileMenuOpen(false)}
               className={[
-                "block px-3 py-2.5 rounded-lg text-base font-medium transition-colors",
+                "block px-3.5 py-2.5 rounded-lg text-base font-medium transition-colors",
                 activeSection === id
-                  ? "text-yellow-400 bg-white/10"
-                  : "text-gray-300 hover:text-white hover:bg-white/5",
+                  ? "text-yellow-200 bg-black/15 font-semibold"
+                  : "text-white/95 hover:text-white hover:bg-black/10",
               ].join(" ")}
             >
               {label}

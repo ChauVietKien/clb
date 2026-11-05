@@ -48,4 +48,28 @@ export const events = [
       "Ngày hội Trung Thu rộn ràng dành cho các em thiếu nhi với múa lân, rước đèn ông sao, phá cỗ và trao các phần quà khuyến học ý nghĩa.",
     image: "/images/ev5.jpg",
   },
+  {
+    id: 7,
+    time: "Hằng năm",
+    title: "Hoạt động Phật Giáo",
+    description:
+      "Tham gia các hoạt động Phật Giáo lớn nhỏ trên địa bàn, khu vực. Kết nối và mở mang hiểu biết.",
+    image: "/images/ev7.jpg",
+  },
+  {
+    id: 8,
+    time: "Tùy duyên",
+    title: "Giao lưu câu lạc bộ",
+    description:
+      "Giao lưu kết bạn, trải nghiệm và tham gia sinh hoạt, hoạt động cùng nhau.",
+    image: "/images/ev8.jpg",
+  },
+  {
+    id: 9,
+    time: "Tối thứ 7 mỗi tuần",
+    title: "Sinh hoạt câu lạc bộ",
+    description:
+      "Tham gia tu tập, học pháp và cùng nhau sinh hoạt trong khuôn viên câu lạc bộ mỗi cuối tuần",
+    image: "/images/ev99.jpg",
+  },
 ];
