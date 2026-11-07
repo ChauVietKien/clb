@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="flex flex-col items-center justify-center text-white pt-24 pb-12 sm:pt-28 sm:pb-16 overflow-hidden">
+    <section className="flex flex-col items-center justify-center text-white pt-20 pb-6 sm:pt-24 sm:pb-8 overflow-hidden">
       <motion.div
         initial={{ opacity: 0, y: 25 }}
         animate={{ opacity: 1, y: 0 }}
@@ -24,7 +24,7 @@ export default function Hero() {
           </h1>
 
           <p className="text-sm sm:text-base md:text-lg max-w-2xl text-center mb-6 sm:mb-8 text-gray-200">
-            Kết nối cộng đồng với những sự kiện, thành viên và cơ hội giá trị.
+            Không gian kết nối người trẻ, cùng sinh hoạt, học hỏi và chung tay trong các hoạt động tại chùa.
           </p>
         </div>
       </motion.div>
@@ -38,7 +38,7 @@ export default function Hero() {
         <div className="w-full h-[260px] sm:h-[420px] md:h-[580px] lg:h-[720px] overflow-hidden relative rounded-2xl sm:rounded-3xl shadow-xl shadow-black/50">
           <Image
             src="/images/hero-banner.jpg"
-            alt="Club Banner"
+            alt="Ảnh tập thể thành viên CLB TTN Phật Tử Chùa Châu Hoằng Liên Xã"
             fill
             priority
             sizes="(max-width: 640px) 100vw, (max-width: 1200px) 90vw, 1200px"

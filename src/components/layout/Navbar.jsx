@@ -8,10 +8,11 @@ import styles from "./Navbar.module.css";
 
 const navLinks = [
   { href: "/#about", label: "Tổng quan", id: "about" },
-  { href: "/#gallery", label: "Trưng bày", id: "gallery" },
+  { href: "/#gallery", label: "Hình ảnh", id: "gallery" },
   { href: "/#events", label: "Sự kiện", id: "events" },
+  { href: "/#benefits", label: "Lợi ích", id: "benefits" },
   { href: "/#members", label: "Thành viên", id: "members" },
-  { href: "/#format", label: "Phương thức", id: "format" },
+  { href: "/#format", label: "Sinh hoạt", id: "format" },
 ];
 
 export default function Navbar() {

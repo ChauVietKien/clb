@@ -9,6 +9,13 @@ export default function VantaBackground({ children }) {
     let effect = null;
     let isMounted = true;
 
+    // Tôn trọng cài đặt giảm chuyển động của hệ điều hành
+    const prefersReducedMotion =
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    const activeSpeed = prefersReducedMotion ? 1 : 3.5;
+
     const loadVanta = async () => {
       const THREE = await import("three");
       const VANTA = await import("vanta/dist/vanta.fog.min");
@@ -18,25 +25,38 @@ export default function VantaBackground({ children }) {
       effect = VANTA.default({
         el: vantaRef.current,
         THREE: THREE,
-        mouseControls: true,
-        touchControls: true,
+        mouseControls: !prefersReducedMotion,
+        touchControls: !prefersReducedMotion,
         gyroControls: false,
         minHeight: 200,
         minWidth: 200,
-        highlightColor: 0xffc300,
-        midtoneColor: 0xff3e18,
-        lowlightColor: 0xd9572b,
-        baseColor: 0xffeee5,
+        highlightColor: 0xffbd00,
+        midtoneColor: 0xff4818,
+        lowlightColor: 0xdb5824,
+        baseColor: 0xffd2b6,
         blurFactor: 0.6,
         zoom: 1,
-        speed: 2.5,
+        speed: activeSpeed,
       });
     };
 
     loadVanta().catch(console.error);
 
+    // Tự động tạm dừng animation khi người dùng chuyển tab để tiết kiệm pin & GPU
+    const handleVisibilityChange = () => {
+      if (!effect || typeof effect.setOptions !== "function") return;
+      if (document.hidden) {
+        effect.setOptions({ speed: 0 });
+      } else {
+        effect.setOptions({ speed: activeSpeed });
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
     return () => {
       isMounted = false;
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
       if (effect) effect.destroy();
     };
   }, []);

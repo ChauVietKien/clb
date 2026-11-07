@@ -6,16 +6,20 @@ import Image from "next/image";
 
 export default function Members() {
   return (
-    <section className="py-12 sm:py-16 bg-transparent text-center overflow-hidden">
-      <motion.h2
+    <section className="py-8 sm:py-10 bg-transparent text-center overflow-hidden">
+      <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.6 }}
-        className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-gray-900 dark:text-gray-100"
       >
-        Tổng quan thành viên chính
-      </motion.h2>
+        <h2 className="text-2xl sm:text-3xl font-bold mb-3 text-gray-900 dark:text-gray-100">
+          Thành viên
+        </h2>
+        <p className="max-w-2xl mx-auto text-sm sm:text-base text-gray-700 dark:text-gray-300 px-4 mb-8 sm:mb-12">
+          Các bạn thành viên gắn bó và hỗ trợ điều phối hoạt động câu lạc bộ.
+        </p>
+      </motion.div>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6 md:gap-6 max-w-6xl mx-auto px-4">
         {members.map((member, idx) => (

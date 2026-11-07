@@ -26,6 +26,20 @@ export const metadata = {
     images: ["/images/hero-banner.jpg"],
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "CLB TTN Phật Tử Chùa Châu Hoằng Liên Xã",
+    description:
+      "Câu lạc bộ thanh thiếu niên Phật tử Chùa Châu Hoằng Liên Xã — Nơi kết nối, sinh hoạt và tổ chức các sự kiện ý nghĩa.",
+    images: ["/images/hero-banner.jpg"],
+  },
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({ children }) {

@@ -13,7 +13,7 @@ import {
 
 export default function Events() {
   return (
-    <section className="py-8 sm:py-12 md:py-16 bg-transparent text-center overflow-hidden">
+    <section className="py-8 sm:py-10 bg-transparent text-center overflow-hidden">
       <motion.div
         initial={{ opacity: 0, y: 25 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -21,10 +21,10 @@ export default function Events() {
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
         <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 sm:mb-3 text-gray-900 dark:text-gray-100">
-          Những sự kiện hằng năm
+          Sự kiện thường niên
         </h2>
         <p className="max-w-2xl mx-auto text-xs sm:text-sm md:text-base text-gray-700 dark:text-gray-300 px-4 mb-6 sm:mb-8 md:mb-10 font-medium">
-          Tổng hợp các hoạt động, đại lễ và chương trình sinh hoạt định kỳ của câu lạc bộ.
+          Các hoạt động và ngày lễ tiêu biểu trong năm tại chùa.
         </p>
 
         {/* Bố cục đa màn hình: 1 cột (mobile) -> 2 cột (tablet/sm) -> 3 cột (desktop/lg) */}
