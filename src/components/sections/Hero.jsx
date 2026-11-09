@@ -22,7 +22,10 @@ export default function Hero() {
               <span className="block sm:inline whitespace-nowrap text-[1.35rem] sm:text-3xl md:text-4xl lg:text-[2.75rem]">
                 CLB Thanh Thiếu Niên Phật tử
               </span>
-              <span className="hidden sm:inline text-3xl md:text-4xl lg:text-[2.75rem]"> — </span>
+              <span className="hidden sm:inline text-3xl md:text-4xl lg:text-[2.75rem]">
+                {" "}
+                —{" "}
+              </span>
               <span className="block sm:inline whitespace-nowrap text-[1.35rem] sm:text-3xl md:text-4xl lg:text-[2.75rem]">
                 Chùa Châu Hoằng Liên Xã
               </span>
@@ -45,7 +48,7 @@ export default function Hero() {
       >
         <div className="w-full h-[260px] sm:h-[420px] md:h-[580px] lg:h-[720px] overflow-hidden relative rounded-2xl sm:rounded-3xl shadow-xl shadow-black/50">
           <Image
-            src="/images/hero-banner.jpg"
+            src="/images/bgr.jpg"
             alt="Ảnh tập thể thành viên CLB TTN Phật Tử Chùa Châu Hoằng Liên Xã"
             fill
             priority

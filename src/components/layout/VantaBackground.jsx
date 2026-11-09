@@ -14,7 +14,7 @@ export default function VantaBackground({ children }) {
       typeof window !== "undefined" &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    const activeSpeed = prefersReducedMotion ? 1 : 3.5;
+    const activeSpeed = prefersReducedMotion ? 2 : 3.5;
 
     const loadVanta = async () => {
       const THREE = await import("three");
@@ -30,10 +30,10 @@ export default function VantaBackground({ children }) {
         gyroControls: false,
         minHeight: 200,
         minWidth: 200,
-        highlightColor: 0xffbd00,
-        midtoneColor: 0xff4818,
-        lowlightColor: 0xdb5824,
-        baseColor: 0xffd2b6,
+        highlightColor: 0xd91414,
+        midtoneColor: 0x940000,
+        lowlightColor: 0x400000,
+        baseColor: 0x660404,
         blurFactor: 0.6,
         zoom: 1,
         speed: activeSpeed,

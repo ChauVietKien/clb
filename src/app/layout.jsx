@@ -23,7 +23,18 @@ export const metadata = {
     title: "CLB TTN Phật Tử Chùa Châu Hoằng Liên Xã",
     description:
       "Câu lạc bộ thanh thiếu niên Phật tử Chùa Châu Hoằng Liên Xã — Kết nối cộng đồng và lan tỏa các hoạt động thiện nguyện.",
-    images: ["/images/hero-banner.jpg"],
+    url: "https://clb-chauhoanglienxa.vercel.app",
+    siteName: "CLB TTN Phật Tử Chùa Châu Hoằng Liên Xã",
+    images: [
+      {
+        url: "/images/og-image.jpg",
+        width: 1200,
+        height: 630,
+        type: "image/jpeg",
+        alt: "CLB TTN Phật Tử Chùa Châu Hoằng Liên Xã",
+      },
+    ],
+    locale: "vi_VN",
     type: "website",
   },
   twitter: {
@@ -31,7 +42,7 @@ export const metadata = {
     title: "CLB TTN Phật Tử Chùa Châu Hoằng Liên Xã",
     description:
       "Câu lạc bộ thanh thiếu niên Phật tử Chùa Châu Hoằng Liên Xã — Nơi kết nối, sinh hoạt và tổ chức các sự kiện ý nghĩa.",
-    images: ["/images/hero-banner.jpg"],
+    images: ["/images/og-image.jpg"],
   },
   alternates: {
     canonical: "/",
