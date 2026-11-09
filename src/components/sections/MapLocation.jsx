@@ -1,10 +1,10 @@
 export default function MapLocation() {
   return (
     <section className="py-8 sm:py-10 px-4 max-w-5xl mx-auto text-center">
-      <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+      <h3 className="text-2xl sm:text-3xl font-bold text-amber-300 drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)] mb-2">
         Vị trí bản đồ
       </h3>
-      <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 mb-6 max-w-xl mx-auto">
+      <p className="text-sm sm:text-base text-amber-100/90 drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)] mb-6 max-w-xl mx-auto">
         Địa chỉ Chùa Châu Hoằng Liên Xã trên Google Maps.
       </p>
       <div className="w-full h-[320px] sm:h-[420px] rounded-2xl overflow-hidden shadow-xl border border-orange-200/50">

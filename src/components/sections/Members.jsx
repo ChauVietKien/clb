@@ -13,10 +13,10 @@ export default function Members() {
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.6 }}
       >
-        <h2 className="text-2xl sm:text-3xl font-bold mb-3 text-gray-900 dark:text-gray-100">
+        <h2 className="text-2xl sm:text-3xl font-bold mb-3 text-amber-300 drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
           Ban quản lý
         </h2>
-        <p className="max-w-2xl mx-auto text-sm sm:text-base text-gray-700 dark:text-gray-300 px-4 mb-8 sm:mb-12">
+        <p className="max-w-2xl mx-auto text-sm sm:text-base text-amber-100/90 drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)] px-4 mb-8 sm:mb-12">
           Các thành viên gắn bó chính và hỗ trợ điều phối hoạt động câu lạc bộ.
         </p>
       </motion.div>
@@ -45,10 +45,10 @@ export default function Members() {
                 loading="lazy"
               />
             </div>
-            <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-800 dark:text-gray-200">
+            <h3 className="text-base sm:text-lg md:text-xl font-bold text-white drop-shadow-[0_1px_4px_rgba(0,0,0,0.6)]">
               {member.name}
             </h3>
-            <p className="text-gray-600 dark:text-gray-400 text-xs sm:text-sm mt-0.5 sm:mt-1">
+            <p className="text-amber-300 font-medium text-xs sm:text-sm mt-0.5 sm:mt-1 drop-shadow-[0_1px_3px_rgba(0,0,0,0.5)]">
               {member.role}
             </p>
           </motion.div>

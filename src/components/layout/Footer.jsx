@@ -12,18 +12,18 @@ export default function Footer() {
           href="https://www.facebook.com/profile.php?id=61552836547449&locale=vi_VN"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 text-gray-800 dark:text-gray-200 hover:text-amber-500 dark:hover:text-amber-400 font-semibold transition-colors"
+          className="inline-flex items-center gap-1.5 text-amber-300 hover:text-amber-200 font-semibold drop-shadow-[0_1px_3px_rgba(0,0,0,0.5)] transition-colors"
         >
-          <ArrowRight className="w-4 h-4 text-amber-500" />
+          <ArrowRight className="w-4 h-4 text-amber-400" />
           <span>#CLB Chùa Châu Hoằng Liên Xã</span>
         </Link>
 
         {/* Khối bên phải: Lời cảm ơn và chữ ký thương hiệu #cvk đặt ngay dưới ở góc */}
         <div className="flex flex-col items-center md:items-end mt-3 md:mt-0 gap-0.5">
-          <p className="text-gray-700 dark:text-gray-300">
+          <p className="text-amber-100/90 drop-shadow-[0_1px_3px_rgba(0,0,0,0.5)]">
             Xin chân thành cảm ơn ❤️
           </p>
-          <span className="font-mono text-sm tracking-wider text-orange-400/90 dark:text-orange-400 font-bold hover:text-orange-600 transition-colors select-none">
+          <span className="font-mono text-sm tracking-wider text-orange-300 font-bold hover:text-orange-200 transition-colors select-none">
             #by_cvk
           </span>
         </div>

@@ -20,10 +20,10 @@ export default function Events() {
         viewport={{ once: true, amount: 0.15 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
-        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 sm:mb-3 text-gray-900 dark:text-gray-100">
+        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 sm:mb-3 text-amber-300 drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
           Sự kiện thường niên
         </h2>
-        <p className="max-w-2xl mx-auto text-xs sm:text-sm md:text-base text-gray-700 dark:text-gray-300 px-4 mb-6 sm:mb-8 md:mb-10 font-medium">
+        <p className="max-w-2xl mx-auto text-xs sm:text-sm md:text-base text-amber-100/90 drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)] px-4 mb-6 sm:mb-8 md:mb-10 font-medium">
           Các hoạt động và ngày lễ tiêu biểu trong năm tại chùa.
         </p>
 
