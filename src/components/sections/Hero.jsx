@@ -10,21 +10,26 @@ export default function Hero() {
         initial={{ opacity: 0, y: 25 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
-        className="flex flex-col items-center text-center px-4"
+        className="flex flex-col items-center text-center px-2 sm:px-4 w-full"
       >
-        <div className="flex flex-col items-center">
-          {/* Tiêu đề 2 dòng có nghĩa, không bao giờ rớt chữ CLB */}
-          <h1 className="mb-3 sm:mb-4 flex flex-col items-center justify-center text-center leading-tight">
-            <span className="text-xl sm:text-3xl md:text-5xl font-bold text-white whitespace-nowrap tracking-tight">
+        <div className="flex flex-col items-center w-full max-w-full">
+          {/* Eyebrow → Title (2 dòng mobile, 1 dòng sm+) → Description */}
+          <h1 className="mb-2.5 sm:mb-4 flex flex-col items-center justify-center text-center leading-tight w-full">
+            <span className="text-[10px] sm:text-xs md:text-sm font-semibold uppercase tracking-[0.2em] text-amber-200/80 mb-1.5 sm:mb-2">
               Chào Mừng Đến Với
             </span>
-            <span className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-amber-300 mt-1 sm:mt-2 whitespace-nowrap tracking-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
-              CLB Chùa Châu Hoằng Liên Xã
+            <span className="text-[1.55rem] sm:text-3xl md:text-4xl lg:text-[2.75rem] font-extrabold text-amber-300 tracking-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)] sm:whitespace-nowrap leading-snug px-1 sm:px-0">
+              CLB Thanh Thiếu Niên Phật tử
+              <br className="sm:hidden" />
+              <span className="hidden sm:inline"> — </span>
+              Chùa Châu Hoằng Liên Xã
             </span>
           </h1>
 
-          <p className="text-sm sm:text-base md:text-lg max-w-2xl text-center mb-6 sm:mb-8 text-gray-200">
-            Không gian kết nối người trẻ, cùng sinh hoạt, học hỏi và chung tay trong các hoạt động tại chùa.
+          {/* Description: luôn nhỏ hơn title */}
+          <p className="text-[0.75rem] sm:text-sm md:text-base max-w-xs sm:max-w-lg text-center mb-5 sm:mb-8 text-gray-200/85 font-normal leading-relaxed px-4">
+            Không gian kết nối người trẻ, cùng sinh hoạt, học hỏi và chung tay
+            trong các hoạt động tại chùa.
           </p>
         </div>
       </motion.div>

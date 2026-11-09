@@ -4,8 +4,7 @@ export const events = [
     id: 1,
     time: "Tết Nguyên Đán",
     title: "Cúng Lễ Phật Đầu Năm — Cầu An Đầu Xuân",
-    description:
-      "Nghi lễ dâng hương, tụng kinh cầu bình an cho gia đạo và đón nhận lộc xuân đầu năm tại chùa Châu Hoằng Liên Xã.",
+    description: "Lễ Phật đầu năm mới, CLB gặp mặt đầu năm và chúc tết thầy.",
     image: "/images/ev1.jpg",
   },
   {
@@ -13,7 +12,7 @@ export const events = [
     time: "Rằm tháng 4 Âm Lịch",
     title: "Đại Lễ Phật Đản",
     description:
-      "Kỷ niệm ngày đản sinh của Đức Bổn Sư Thích Ca Mâu Ni với nghi thức tắm Phật truyền thống, hoạt động sinh hoạt và thắp nến hoa đăng.",
+      'Kỷ niệm ngày Đản sanh của Đức Phật "Bổn Sư Thích Ca Mâu Ni" với nghi thức tắm Phật truyền thống, hoạt động sinh hoạt và thắp nến hoa đăng.',
     image: "/images/ev22.jpg",
   },
   {
@@ -21,7 +20,7 @@ export const events = [
     time: "Tháng 7 - Tháng 8",
     title: "Khóa Tu Mùa Hè — Bồi dưỡng",
     description:
-      "Chương trình tu học thường niên dành cho thanh thiếu niên phật tử: học giáo lý, rèn luyện kỹ năng mềm, thiền tập và giao lưu gắn kết.",
+      "Chương trình tu học thường niên dành cho thanh thiếu niên phật tử: học giáo lý, rèn luyện kỹ năng mềm, thiền hành và giao lưu gắn kết.",
     image: "/images/ev3.jpg",
   },
   {
@@ -29,7 +28,7 @@ export const events = [
     time: "Tháng 7 Âm Lịch",
     title: "Đại Lễ Vu Lan — Báo Hiếu",
     description:
-      "Nghi thức cài hoa hồng thiêng liêng và dâng pháp y, bày tỏ lòng tri ân sâu sắc đến công ơn sinh thành dưỡng dục của cha mẹ tổ tiên.",
+      "Nghi thức cài hoa hồng và thắp nến tri ân, bày tỏ lòng biết ơn sâu sắc đến công sinh thành dưỡng dục của cha mẹ tổ tiên.",
     image: "/images/ev4.jpg",
   },
   {
@@ -69,7 +68,7 @@ export const events = [
     time: "Tối thứ 7 mỗi tuần",
     title: "Sinh hoạt câu lạc bộ",
     description:
-      "Tham gia tu tập, học pháp và cùng nhau sinh hoạt trong khuôn viên câu lạc bộ mỗi cuối tuần",
+      "Tham gia tu tập, học pháp và cùng nhau sinh hoạt trong khuôn viên chùa vào mỗi tối thứ 7 hàng tuần",
     image: "/images/ev99.jpg",
   },
 ];
