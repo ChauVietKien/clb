@@ -14,14 +14,14 @@ export default function Members() {
         transition={{ duration: 0.6 }}
       >
         <h2 className="text-2xl sm:text-3xl font-bold mb-3 text-gray-900 dark:text-gray-100">
-          Thành viên
+          Ban quản lý
         </h2>
         <p className="max-w-2xl mx-auto text-sm sm:text-base text-gray-700 dark:text-gray-300 px-4 mb-8 sm:mb-12">
-          Các bạn thành viên gắn bó và hỗ trợ điều phối hoạt động câu lạc bộ.
+          Các thành viên gắn bó chính và hỗ trợ điều phối hoạt động câu lạc bộ.
         </p>
       </motion.div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6 md:gap-6 max-w-6xl mx-auto px-4">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-6 max-w-6xl mx-auto px-4">
         {members.map((member, idx) => (
           <motion.div
             key={member.id}
