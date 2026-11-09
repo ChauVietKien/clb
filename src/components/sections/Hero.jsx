@@ -18,11 +18,14 @@ export default function Hero() {
             <span className="text-[10px] sm:text-xs md:text-sm font-semibold uppercase tracking-[0.2em] text-amber-200/80 mb-1.5 sm:mb-2">
               Chào Mừng Đến Với
             </span>
-            <span className="text-[1.55rem] sm:text-3xl md:text-4xl lg:text-[2.75rem] font-extrabold text-amber-300 tracking-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)] sm:whitespace-nowrap leading-snug px-1 sm:px-0">
-              CLB Thanh Thiếu Niên Phật tử
-              <br className="sm:hidden" />
-              <span className="hidden sm:inline"> — </span>
-              Chùa Châu Hoằng Liên Xã
+            <span className="font-extrabold text-amber-300 tracking-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)] leading-snug sm:whitespace-nowrap text-center">
+              <span className="block sm:inline whitespace-nowrap text-[1.35rem] sm:text-3xl md:text-4xl lg:text-[2.75rem]">
+                CLB Thanh Thiếu Niên Phật tử
+              </span>
+              <span className="hidden sm:inline text-3xl md:text-4xl lg:text-[2.75rem]"> — </span>
+              <span className="block sm:inline whitespace-nowrap text-[1.35rem] sm:text-3xl md:text-4xl lg:text-[2.75rem]">
+                Chùa Châu Hoằng Liên Xã
+              </span>
             </span>
           </h1>
 
