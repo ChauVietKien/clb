@@ -27,7 +27,8 @@ export const metadata = {
     siteName: "CLB TTN Phật Tử Chùa Châu Hoằng Liên Xã",
     images: [
       {
-        url: "/images/og-image.jpg",
+        url: "https://chuachauhoang.pages.dev/images/og-image.jpg",
+        secureUrl: "https://chuachauhoang.pages.dev/images/og-image.jpg",
         width: 1200,
         height: 630,
         type: "image/jpeg",
