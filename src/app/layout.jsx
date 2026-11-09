@@ -19,6 +19,11 @@ export const metadata = {
     "Vu Lan",
     "Phật Đản",
   ],
+  icons: {
+    icon: "/images/logo.jpg",
+    shortcut: "/images/logo.jpg",
+    apple: "/images/logo.jpg",
+  },
   openGraph: {
     title: "CLB TTN Phật Tử Chùa Châu Hoằng Liên Xã",
     description:
