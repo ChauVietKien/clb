@@ -1,6 +1,6 @@
 "use client";
 
-import { members } from "@/data/members";
+import { advisor, members } from "@/data/members";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
@@ -13,14 +13,50 @@ export default function Members() {
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.6 }}
       >
-        <h2 className="text-2xl sm:text-3xl font-bold mb-3 text-amber-300 drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
-          Ban quản lý
+        <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-amber-300 drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
+          Ban Điều Hành
         </h2>
-        <p className="max-w-2xl mx-auto text-sm sm:text-base text-amber-100/90 drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)] px-4 mb-8 sm:mb-12">
-          Các thành viên gắn bó chính và hỗ trợ điều phối hoạt động câu lạc bộ.
+      </motion.div>
+
+      {/* Cố Vấn Giáo Hạnh CLB - Thầy Hoà (centered on mobile & desktop) */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="max-w-md mx-auto px-4 mb-8 sm:mb-10 flex flex-col items-center"
+      >
+        <div className="relative w-24 h-24 sm:w-28 sm:h-28 mb-3 rounded-full overflow-hidden shadow-lg shadow-amber-950/40 ring-3 ring-amber-400/80 transition-transform duration-300 hover:scale-105">
+          <Image
+            src={advisor.avatar}
+            alt={advisor.name}
+            fill
+            sizes="(max-width: 640px) 96px, 112px"
+            className="object-cover"
+            priority
+          />
+        </div>
+        <span className="inline-block px-3 py-0.5 rounded-full text-xs font-semibold bg-amber-500/20 text-amber-300 border border-amber-400/40 mb-1.5 backdrop-blur-xs">
+          {advisor.role}
+        </span>
+        <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)]">
+          {advisor.name}
+        </h3>
+        <p className="text-amber-100/90 font-medium text-xs sm:text-sm mt-0.5 drop-shadow-[0_1px_3px_rgba(0,0,0,0.5)]">
+          {advisor.title}
         </p>
       </motion.div>
 
+      {/* Divider with label */}
+      <div className="flex items-center justify-center max-w-xl mx-auto px-4 mb-6 sm:mb-8">
+        <div className="h-px bg-gradient-to-r from-transparent via-amber-400/40 to-transparent flex-1" />
+        <span className="px-3 text-xs sm:text-sm uppercase tracking-wider text-amber-200/85 font-semibold drop-shadow-[0_1px_3px_rgba(0,0,0,0.6)]">
+          Các thành viên điều phối hoạt động CLB
+        </span>
+        <div className="h-px bg-gradient-to-r from-transparent via-amber-400/40 to-transparent flex-1" />
+      </div>
+
+      {/* Grid of members */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-6 max-w-6xl mx-auto px-4">
         {members.map((member, idx) => (
           <motion.div

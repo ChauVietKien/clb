@@ -10,8 +10,8 @@ const navLinks = [
   { href: "/#about", label: "Tổng quan", id: "about" },
   { href: "/#gallery", label: "Hình ảnh", id: "gallery" },
   { href: "/#events", label: "Sự kiện", id: "events" },
-  { href: "/#benefits", label: "Lợi ích", id: "benefits" },
-  { href: "/#members", label: "Thành viên", id: "members" },
+  { href: "/#benefits", label: "Ý nghĩa", id: "benefits" },
+  { href: "/#members", label: "Ban điều hành", id: "members" },
   { href: "/#format", label: "Sinh hoạt", id: "format" },
 ];
 

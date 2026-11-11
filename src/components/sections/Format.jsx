@@ -29,7 +29,7 @@ export default function Format() {
               Nội dung:
             </span>
             <span className="text-gray-700 dark:text-gray-300">
-              Các buổi gặp gỡ thường có tụng kinh ngắn đầu giờ, chia sẻ kỹ năng và chuẩn bị các hoạt động chung.
+              Tụng kinh, ngồi thiền, chia sẻ kỹ năng. Sinh hoạt vòng tròn.
             </span>
           </div>
 

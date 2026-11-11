@@ -3,16 +3,17 @@ export const events = [
   {
     id: 1,
     time: "Tết Nguyên Đán",
-    title: "Cúng Lễ Phật Đầu Năm — Cầu An Đầu Xuân",
-    description: "Lễ Phật đầu năm mới, CLB gặp mặt đầu năm và chúc tết thầy.",
+    title: "Lễ Phật đầu năm - chúc tết",
+    description:
+      "Các thành viên CLB cùng nhau lễ Phật cầu một năm bình an, lễ gặp mặt đầu năm và chúc tết thầy.",
     image: "/images/ev1.jpg",
   },
   {
     id: 2,
     time: "Rằm tháng 4 Âm Lịch",
-    title: "Đại Lễ Phật Đản",
+    title: "Đại lễ Phật đản",
     description:
-      'Kỷ niệm ngày Đản sanh của Đức Phật "Bổn Sư Thích Ca Mâu Ni" với nghi thức tắm Phật truyền thống, hoạt động sinh hoạt và thắp nến hoa đăng.',
+      'Kỷ niệm ngày đản sanh của đức Phật "Bổn Sư Thích Ca Mâu Ni" với nghi thức truyền thống, lễ Mộc Dục (Tắm Phật), hoạt động cắm trại, văn nghệ…',
     image: "/images/ev22.jpg",
   },
   {

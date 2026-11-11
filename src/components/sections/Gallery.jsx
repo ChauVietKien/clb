@@ -1,12 +1,12 @@
 "use client";
 
-import { useSyncExternalStore, useState, useEffect } from "react";
-import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
 import { gallery } from "@/data/gallery";
+import { AnimatePresence, motion } from "framer-motion";
+import { ChevronLeft, ChevronRight, X, ZoomIn } from "lucide-react";
+import Image from "next/image";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import { Autoplay, EffectCoverflow } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { ChevronLeft, ChevronRight, X, ZoomIn } from "lucide-react";
 
 import "swiper/css";
 import "swiper/css/effect-coverflow";
@@ -14,7 +14,11 @@ import "swiper/css/effect-coverflow";
 const emptySubscribe = () => () => {};
 
 export default function Gallery() {
-  const isClient = useSyncExternalStore(emptySubscribe, () => true, () => false);
+  const isClient = useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false,
+  );
   const [lightboxIndex, setLightboxIndex] = useState(null);
 
   // Điều hướng bàn phím và khóa cuộn trang khi mở phóng to ảnh
@@ -60,10 +64,11 @@ export default function Gallery() {
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
         <h2 className="text-2xl sm:text-3xl font-bold mb-3 text-amber-300 drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
-          Hình ảnh hoạt động
+          Hành trình của chúng ta
         </h2>
         <p className="max-w-2xl mx-auto text-sm sm:text-base text-amber-100/90 drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)] px-4 mb-4 sm:mb-6">
-          Những khoảnh khắc sinh hoạt và kỷ niệm của các thành viên. Nhấp vào ảnh để xem phóng to.
+          Những khoảnh khắc sinh hoạt và kỷ niệm của các thành viên. Nhấp vào
+          ảnh để xem và phóng to.
         </p>
       </motion.div>
 
@@ -95,13 +100,28 @@ export default function Gallery() {
               }}
               breakpoints={{
                 320: {
-                  coverflowEffect: { stretch: 40, depth: 100, scale: 0.85, rotate: 0 },
+                  coverflowEffect: {
+                    stretch: 40,
+                    depth: 100,
+                    scale: 0.85,
+                    rotate: 0,
+                  },
                 },
                 768: {
-                  coverflowEffect: { stretch: 70, depth: 140, scale: 0.88, rotate: 0 },
+                  coverflowEffect: {
+                    stretch: 70,
+                    depth: 140,
+                    scale: 0.88,
+                    rotate: 0,
+                  },
                 },
                 1024: {
-                  coverflowEffect: { stretch: 90, depth: 160, scale: 0.88, rotate: 0 },
+                  coverflowEffect: {
+                    stretch: 90,
+                    depth: 160,
+                    scale: 0.88,
+                    rotate: 0,
+                  },
                 },
               }}
               className="w-full py-3 !overflow-visible"
@@ -117,7 +137,7 @@ export default function Gallery() {
                   >
                     <Image
                       src={item.src}
-                      alt={item.alt}
+                      alt={item.alt || `Hoạt động ${item.id}`}
                       fill
                       sizes="(max-width: 640px) 270px, (max-width: 768px) 420px, 560px"
                       className="object-cover select-none"
@@ -175,7 +195,7 @@ export default function Gallery() {
               onClick={(e) => {
                 e.stopPropagation();
                 setLightboxIndex((prev) =>
-                  prev > 0 ? prev - 1 : gallery.length - 1
+                  prev > 0 ? prev - 1 : gallery.length - 1,
                 );
               }}
               className="absolute left-2 sm:left-6 z-20 p-2.5 rounded-full bg-white/10 hover:bg-white/25 text-white transition-colors cursor-pointer"
@@ -196,7 +216,10 @@ export default function Gallery() {
             >
               <Image
                 src={gallery[lightboxIndex].src}
-                alt={gallery[lightboxIndex].alt}
+                alt={
+                  gallery[lightboxIndex].alt ||
+                  `Hoạt động ${gallery[lightboxIndex].id}`
+                }
                 fill
                 priority
                 sizes="95vw"
@@ -210,7 +233,7 @@ export default function Gallery() {
               onClick={(e) => {
                 e.stopPropagation();
                 setLightboxIndex((prev) =>
-                  prev < gallery.length - 1 ? prev + 1 : 0
+                  prev < gallery.length - 1 ? prev + 1 : 0,
                 );
               }}
               className="absolute right-2 sm:right-6 z-20 p-2.5 rounded-full bg-white/10 hover:bg-white/25 text-white transition-colors cursor-pointer"
@@ -221,9 +244,15 @@ export default function Gallery() {
 
             {/* Chú thích ảnh và số trang */}
             <div className="absolute bottom-3 sm:bottom-5 left-1/2 -translate-x-1/2 text-center text-white/90 text-xs sm:text-sm px-4 py-1.5 rounded-full bg-black/60 backdrop-blur-md max-w-[90vw] truncate">
-              <span>{gallery[lightboxIndex].alt}</span>
-              <span className="mx-2 text-white/40">•</span>
-              <span className="font-mono">{lightboxIndex + 1} / {gallery.length}</span>
+              {gallery[lightboxIndex].alt && (
+                <>
+                  <span>{gallery[lightboxIndex].alt}</span>
+                  <span className="mx-2 text-white/40">•</span>
+                </>
+              )}
+              <span className="font-mono font-medium">
+                {lightboxIndex + 1} / {gallery.length}
+              </span>
             </div>
           </motion.div>
         )}

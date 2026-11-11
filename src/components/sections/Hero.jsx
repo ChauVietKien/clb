@@ -33,9 +33,9 @@ export default function Hero() {
           </h1>
 
           {/* Description: luôn nhỏ hơn title */}
-          <p className="text-[0.75rem] sm:text-sm md:text-base max-w-xs sm:max-w-lg text-center mb-5 sm:mb-8 text-gray-200/85 font-normal leading-relaxed px-4">
-            Không gian kết nối người trẻ, cùng sinh hoạt, học hỏi và chung tay
-            trong các hoạt động tại chùa.
+          <p className="text-[0.75rem] sm:text-sm md:text-base max-w-xs sm:max-w-xl text-center mb-5 sm:mb-8 text-gray-200/85 font-normal leading-relaxed px-4">
+            Không gian kết nối với các bạn trẻ, cùng học hỏi, sinh hoạt và góp
+            phần phụng sự trong các hoạt động tại chùa.
           </p>
         </div>
       </motion.div>
@@ -48,7 +48,7 @@ export default function Hero() {
       >
         <div className="w-full h-[260px] sm:h-[420px] md:h-[580px] lg:h-[720px] overflow-hidden relative rounded-2xl sm:rounded-3xl shadow-xl shadow-black/50">
           <Image
-            src="/images/bgr.jpg"
+            src="https://res.cloudinary.com/hztii11y/image/upload/f_auto,q_auto/v1794412352/hero.jpg"
             alt="Ảnh tập thể thành viên CLB TTN Phật Tử Chùa Châu Hoằng Liên Xã"
             fill
             priority
@@ -62,6 +62,11 @@ export default function Hero() {
             }}
           />
         </div>
+
+        {/* Khẩu hiệu / Slogan CLB */}
+        <p className="text-center text-xs sm:text-sm md:text-base font-semibold tracking-wide text-amber-200/90 mt-4 sm:mt-5 drop-shadow-[0_1px_4px_rgba(0,0,0,0.6)]">
+          Tuổi Trẻ Hướng Phật — Kết Nối Yêu Thương — Tiếp Nối Hành Trình
+        </p>
       </motion.div>
     </section>
   );
