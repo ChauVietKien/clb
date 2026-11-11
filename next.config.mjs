@@ -9,6 +9,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: '**.fbcdn.net',
       },
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+      },
     ],
   },
 };
