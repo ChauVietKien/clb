@@ -64,7 +64,7 @@ export default function Gallery() {
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
         <h2 className="text-2xl sm:text-3xl font-bold mb-3 text-amber-300 drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
-          Hành trình của chúng ta
+          Hành trình hoạt động
         </h2>
         <p className="max-w-2xl mx-auto text-sm sm:text-base text-amber-100/90 drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)] px-4 mb-4 sm:mb-6">
           Những khoảnh khắc sinh hoạt và kỷ niệm của các thành viên. Nhấp vào
