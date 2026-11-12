@@ -91,8 +91,8 @@ export default function Navbar() {
                   className={[
                     "px-3 py-2 text-sm font-medium transition-all duration-200 border-b-2",
                     activeSection === id
-                      ? "text-yellow-400 border-yellow-400"
-                      : "text-gray-300 border-transparent hover:text-white",
+                      ? "text-amber-300 border-amber-400 font-semibold drop-shadow-[0_1px_3px_rgba(0,0,0,0.5)]"
+                      : "text-amber-100/75 border-transparent hover:text-white hover:border-amber-400/40",
                   ].join(" ")}
                 >
                   {label}
@@ -106,13 +106,13 @@ export default function Navbar() {
             <button
               type="button"
               onClick={() => setMobileMenuOpen((prev) => !prev)}
-              className="p-2 rounded-lg text-gray-300 hover:text-white hover:bg-white/10 focus:outline-none transition-colors"
+              className="p-2 rounded-xl text-amber-200/90 hover:text-amber-100 bg-black/30 hover:bg-black/50 border border-amber-400/25 shadow-xs transition-all duration-200 active:scale-95 focus:outline-hidden"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? (
-                <X className="w-6 h-6" />
+                <X className="w-5.5 h-5.5 text-amber-300 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]" />
               ) : (
-                <Menu className="w-6 h-6" />
+                <Menu className="w-5.5 h-5.5 text-amber-300 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]" />
               )}
             </button>
           </div>
@@ -128,18 +128,18 @@ export default function Navbar() {
             onClick={() => setMobileMenuOpen(false)}
             aria-hidden="true"
           />
-          {/* Popover menu trôi nổi bên phải */}
-          <div className="absolute right-3 sm:right-6 top-16 z-30 md:hidden w-56 sm:w-60 backdrop-blur-xl bg-[rgba(215,85,15,0.94)] border border-orange-300/35 rounded-2xl p-2 space-y-1 shadow-2xl shadow-black/40">
+          {/* Popover menu trôi nổi bên phải: kính mờ ruby trầm hài hòa nền Vanta */}
+          <div className="absolute right-3 sm:right-6 top-16 z-30 md:hidden w-56 sm:w-60 backdrop-blur-2xl bg-[#4d0b12]/92 dark:bg-[#280509]/95 border border-amber-400/30 rounded-2xl p-2.5 space-y-1.5 shadow-[0_12px_40px_rgba(0,0,0,0.6)] ring-1 ring-white/10">
             {navLinks.map(({ href, label, id }) => (
               <Link
                 key={id}
                 href={href}
                 onClick={() => setMobileMenuOpen(false)}
                 className={[
-                  "block px-3.5 py-2.5 rounded-xl text-sm font-semibold transition-all",
+                  "block px-3.5 py-2.5 rounded-xl text-sm transition-all duration-150",
                   activeSection === id
-                    ? "text-yellow-200 bg-black/25 shadow-xs"
-                    : "text-white/95 hover:text-white hover:bg-black/15",
+                    ? "text-amber-300 bg-amber-500/20 border border-amber-400/30 font-semibold shadow-xs"
+                    : "text-amber-100/85 hover:text-white hover:bg-white/10 font-medium",
                 ].join(" ")}
               >
                 {label}

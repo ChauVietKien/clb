@@ -5,11 +5,12 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, X, ZoomIn } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState, useSyncExternalStore } from "react";
-import { Autoplay, EffectCoverflow } from "swiper/modules";
+import { Autoplay, EffectCoverflow, Virtual } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
 import "swiper/css/effect-coverflow";
+import "swiper/css/virtual";
 
 const emptySubscribe = () => () => {};
 
@@ -64,7 +65,7 @@ export default function Gallery() {
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
         <h2 className="text-2xl sm:text-3xl font-bold mb-3 text-amber-300 drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
-          Hành trình hoạt động
+          Hành trình của chúng ta
         </h2>
         <p className="max-w-2xl mx-auto text-sm sm:text-base text-amber-100/90 drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)] px-4 mb-4 sm:mb-6">
           Những khoảnh khắc sinh hoạt và kỷ niệm của các thành viên. Nhấp vào
@@ -76,8 +77,12 @@ export default function Gallery() {
         <div className="max-w-5xl mx-auto min-h-[220px] sm:min-h-[280px] md:min-h-[360px]">
           {isClient ? (
             <Swiper
-              modules={[EffectCoverflow, Autoplay]}
+              modules={[EffectCoverflow, Autoplay, Virtual]}
               effect={"coverflow"}
+              virtual={{
+                addSlidesAfter: 2,
+                addSlidesBefore: 2,
+              }}
               grabCursor={true}
               centeredSlides={true}
               slidesPerView={"auto"}
@@ -129,6 +134,7 @@ export default function Gallery() {
               {slides.map((item, index) => (
                 <SwiperSlide
                   key={`${item.id || index}-${index}`}
+                  virtualIndex={index}
                   className="group !w-[270px] sm:!w-[420px] md:!w-[560px] aspect-[16/9] cursor-pointer"
                 >
                   <div
@@ -142,7 +148,8 @@ export default function Gallery() {
                       sizes="(max-width: 640px) 270px, (max-width: 768px) 420px, 560px"
                       className="object-cover select-none"
                       draggable={false}
-                      loading="lazy"
+                      loading={index < 4 ? "eager" : "lazy"}
+                      priority={index === 0}
                     />
                     <div className="absolute inset-0 bg-black/40 transition-opacity duration-500 group-[.swiper-slide-active]:opacity-0 opacity-100 pointer-events-none" />
 

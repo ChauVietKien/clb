@@ -14,7 +14,7 @@ export default function VantaBackground({ children }) {
       typeof window !== "undefined" &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    const activeSpeed = prefersReducedMotion ? 2 : 3.5;
+    const activeSpeed = prefersReducedMotion ? 1.0 : 2.0;
 
     const loadVanta = async () => {
       const THREE = await import("three");
@@ -30,6 +30,8 @@ export default function VantaBackground({ children }) {
         gyroControls: false,
         minHeight: 200,
         minWidth: 200,
+        scale: 1.5,
+        scaleMobile: 2.0,
         highlightColor: 0xeb3838,
         midtoneColor: 0xb51e24,
         lowlightColor: 0x5e0b10,
@@ -42,7 +44,7 @@ export default function VantaBackground({ children }) {
 
     loadVanta().catch(console.error);
 
-    // Tự động tạm dừng animation khi người dùng chuyển tab để tiết kiệm pin & GPU
+    // Tự động điều chỉnh hiệu năng khi chuyển tab hoặc cuộn sâu
     const handleVisibilityChange = () => {
       if (!effect || typeof effect.setOptions !== "function") return;
       if (document.hidden) {
@@ -52,11 +54,31 @@ export default function VantaBackground({ children }) {
       }
     };
 
+    let ticking = false;
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          if (
+            effect &&
+            typeof effect.setOptions === "function" &&
+            !document.hidden
+          ) {
+            const isScrolledDeep = window.scrollY > 1400;
+            effect.setOptions({ speed: isScrolledDeep ? 0.5 : activeSpeed });
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
     document.addEventListener("visibilitychange", handleVisibilityChange);
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => {
       isMounted = false;
       document.removeEventListener("visibilitychange", handleVisibilityChange);
+      window.removeEventListener("scroll", handleScroll);
       if (effect) effect.destroy();
     };
   }, []);
