@@ -17,7 +17,7 @@ export default function Events() {
       <motion.div
         initial={{ opacity: 0, y: 25 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.15 }}
+        viewport={{ once: true, amount: 0, margin: "0px 0px -200px 0px" }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
         <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 sm:mb-3 text-amber-300 drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">

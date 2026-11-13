@@ -19,10 +19,11 @@
 .logoText {
   font-size: 0.8rem;
   font-weight: 600;
-  color: #f3f4f6;
+  color: #fffbeb;
   margin: 0;
   line-height: 1.25;
   text-align: left;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
 }
 
 @media (max-width: 640px) {

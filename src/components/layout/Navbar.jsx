@@ -52,7 +52,7 @@ export default function Navbar() {
   }, [mobileMenuOpen]);
 
   return (
-    <nav className="backdrop-blur-none sm:backdrop-blur-sm bg-black/60 sm:bg-black/20 shadow-md fixed w-full z-30 top-0 left-0 transition-colors">
+    <nav className="backdrop-blur-none sm:backdrop-blur-sm bg-black/25 sm:bg-black/20 border-b border-amber-400/15 shadow-sm fixed w-full z-30 top-0 left-0 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className={styles.logo}>
@@ -92,7 +92,7 @@ export default function Navbar() {
                     "px-3 py-2 text-sm font-medium transition-all duration-200 border-b-2",
                     activeSection === id
                       ? "text-amber-300 border-amber-400 font-semibold drop-shadow-[0_1px_3px_rgba(0,0,0,0.5)]"
-                      : "text-amber-100/75 border-transparent hover:text-white hover:border-amber-400/40",
+                      : "text-amber-100/90 border-transparent hover:text-white hover:border-amber-400/40",
                   ].join(" ")}
                 >
                   {label}
@@ -128,8 +128,8 @@ export default function Navbar() {
             onClick={() => setMobileMenuOpen(false)}
             aria-hidden="true"
           />
-          {/* Popover menu trôi nổi bên phải: màu ruby trầm hài hòa nền Vanta, tối ưu không lag trên mobile */}
-          <div className="absolute right-3 sm:right-6 top-16 z-30 md:hidden w-56 sm:w-60 backdrop-blur-none sm:backdrop-blur-2xl bg-[#3b080e]/98 dark:bg-[#200306]/98 border border-amber-400/30 rounded-2xl p-2.5 space-y-1.5 shadow-[0_12px_40px_rgba(0,0,0,0.6)] ring-1 ring-white/10">
+          {/* Popover menu trôi nổi bên phải: màu ruby ấm hài hòa nền Vanta, tươi sáng và không lag trên mobile */}
+          <div className="absolute right-3 sm:right-6 top-16 z-30 md:hidden w-56 sm:w-60 backdrop-blur-none sm:backdrop-blur-2xl bg-[#5e0d16]/96 dark:bg-[#38060d]/96 border border-amber-400/40 rounded-2xl p-2.5 space-y-1.5 shadow-[0_12px_40px_rgba(0,0,0,0.5)] ring-1 ring-amber-300/20">
             {navLinks.map(({ href, label, id }) => (
               <Link
                 key={id}
