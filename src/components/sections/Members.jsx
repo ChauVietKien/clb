@@ -32,7 +32,7 @@ export default function Members() {
             alt={advisor.name}
             fill
             sizes="(max-width: 640px) 96px, 112px"
-            className="object-cover"
+            className="object-cover object-[center_20%]"
             priority
           />
         </div>

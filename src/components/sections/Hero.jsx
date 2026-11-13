@@ -48,7 +48,7 @@ export default function Hero() {
       >
         <div className="w-full h-[260px] sm:h-[420px] md:h-[580px] lg:h-[720px] overflow-hidden relative rounded-2xl sm:rounded-3xl shadow-xl shadow-black/50">
           <Image
-            src="https://res.cloudinary.com/hztii11y/image/upload/f_auto,q_auto,w_1400,c_limit/v1794412352/hero.jpg"
+            src="https://res.cloudinary.com/hztii11y/image/upload/f_auto,q_100,e_sharpen:90/v1794412352/hero.jpg"
             alt="Ảnh tập thể thành viên CLB TTN Phật Tử Chùa Châu Hoằng Liên Xã"
             fill
             priority
