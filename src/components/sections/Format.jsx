@@ -12,7 +12,7 @@ export default function Format() {
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
         <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 text-amber-300 drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
-          Lịch sinh hoạt
+          Nội dung sinh hoạt
         </h2>
         <div className="space-y-2.5 max-w-2xl mx-auto px-4 text-left">
           <div className="rounded-xl bg-[#fff8f4]/92 dark:bg-[#151924]/90 backdrop-blur-md border border-amber-900/15 dark:border-gray-800 border-l-4 border-l-amber-500 py-2.5 px-3.5 sm:py-3 sm:px-4 shadow-xs hover:shadow-md transition-all text-sm sm:text-base leading-snug">
@@ -38,7 +38,8 @@ export default function Format() {
               Tham gia:
             </span>
             <span className="text-gray-700 dark:text-gray-300">
-              Bạn có thể đến tham gia trực tiếp vào tối thứ Bảy, hoặc liên hệ qua Facebook{" "}
+              Bạn có thể đến tham gia trực tiếp vào tối thứ Bảy, hoặc liên hệ
+              qua Facebook{" "}
               <a
                 href="https://www.facebook.com/bang.l.tim.16?locale=vi_VN"
                 target="_blank"
