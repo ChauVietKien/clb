@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="backdrop-blur-sm bg-black/20 py-2.5 sm:py-3.5 mt-6 sm:mt-8 border-t border-white/10">
+    <footer className="backdrop-blur-none sm:backdrop-blur-sm bg-black/60 sm:bg-black/20 py-2.5 sm:py-3.5 mt-6 sm:mt-8 border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center text-xs sm:text-sm gap-1.5 md:gap-0">
         {/* Link liên hệ câu lạc bộ */}
         <Link

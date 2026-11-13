@@ -52,7 +52,7 @@ export default function Navbar() {
   }, [mobileMenuOpen]);
 
   return (
-    <nav className="backdrop-blur-sm bg-black/20 shadow-md fixed w-full z-30 top-0 left-0 transition-colors">
+    <nav className="backdrop-blur-none sm:backdrop-blur-sm bg-black/60 sm:bg-black/20 shadow-md fixed w-full z-30 top-0 left-0 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className={styles.logo}>
@@ -128,8 +128,8 @@ export default function Navbar() {
             onClick={() => setMobileMenuOpen(false)}
             aria-hidden="true"
           />
-          {/* Popover menu trôi nổi bên phải: kính mờ ruby trầm hài hòa nền Vanta */}
-          <div className="absolute right-3 sm:right-6 top-16 z-30 md:hidden w-56 sm:w-60 backdrop-blur-2xl bg-[#4d0b12]/92 dark:bg-[#280509]/95 border border-amber-400/30 rounded-2xl p-2.5 space-y-1.5 shadow-[0_12px_40px_rgba(0,0,0,0.6)] ring-1 ring-white/10">
+          {/* Popover menu trôi nổi bên phải: màu ruby trầm hài hòa nền Vanta, tối ưu không lag trên mobile */}
+          <div className="absolute right-3 sm:right-6 top-16 z-30 md:hidden w-56 sm:w-60 backdrop-blur-none sm:backdrop-blur-2xl bg-[#3b080e]/98 dark:bg-[#200306]/98 border border-amber-400/30 rounded-2xl p-2.5 space-y-1.5 shadow-[0_12px_40px_rgba(0,0,0,0.6)] ring-1 ring-white/10">
             {navLinks.map(({ href, label, id }) => (
               <Link
                 key={id}

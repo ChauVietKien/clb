@@ -15,7 +15,7 @@ export default function About() {
           Giới thiệu chung
         </h2>
         <div className="space-y-2.5 max-w-2xl mx-auto px-4 text-left">
-          <div className="rounded-xl bg-[#fff8f4]/92 dark:bg-[#151924]/90 backdrop-blur-md border border-amber-900/15 dark:border-gray-800 border-l-4 border-l-amber-500 py-2.5 px-3.5 sm:py-3 sm:px-4 shadow-xs hover:shadow-md transition-all text-sm sm:text-base leading-snug">
+          <div className="rounded-xl bg-[#fff8f4]/96 dark:bg-[#151924]/96 backdrop-blur-none sm:backdrop-blur-md border border-amber-900/15 dark:border-gray-800 border-l-4 border-l-amber-500 py-2.5 px-3.5 sm:py-3 sm:px-4 shadow-xs hover:shadow-md transition-all text-sm sm:text-base leading-snug">
             <span className="font-bold text-amber-700 dark:text-amber-400 mr-2">
               Ngôi nhà thứ 2:
             </span>
@@ -24,7 +24,7 @@ export default function About() {
             </span>
           </div>
 
-          <div className="rounded-xl bg-[#fff8f4]/92 dark:bg-[#151924]/90 backdrop-blur-md border border-amber-900/15 dark:border-gray-800 border-l-4 border-l-amber-500 py-2.5 px-3.5 sm:py-3 sm:px-4 shadow-xs hover:shadow-md transition-all text-sm sm:text-base leading-snug">
+          <div className="rounded-xl bg-[#fff8f4]/96 dark:bg-[#151924]/96 backdrop-blur-none sm:backdrop-blur-md border border-amber-900/15 dark:border-gray-800 border-l-4 border-l-amber-500 py-2.5 px-3.5 sm:py-3 sm:px-4 shadow-xs hover:shadow-md transition-all text-sm sm:text-base leading-snug">
             <span className="font-bold text-amber-700 dark:text-amber-400 mr-2">
               Chung tay phụng sự:
             </span>
@@ -33,7 +33,7 @@ export default function About() {
             </span>
           </div>
 
-          <div className="rounded-xl bg-[#fff8f4]/92 dark:bg-[#151924]/90 backdrop-blur-md border border-amber-900/15 dark:border-gray-800 border-l-4 border-l-amber-500 py-2.5 px-3.5 sm:py-3 sm:px-4 shadow-xs hover:shadow-md transition-all text-sm sm:text-base leading-snug">
+          <div className="rounded-xl bg-[#fff8f4]/96 dark:bg-[#151924]/96 backdrop-blur-none sm:backdrop-blur-md border border-amber-900/15 dark:border-gray-800 border-l-4 border-l-amber-500 py-2.5 px-3.5 sm:py-3 sm:px-4 shadow-xs hover:shadow-md transition-all text-sm sm:text-base leading-snug">
             <span className="font-bold text-amber-700 dark:text-amber-400 mr-2">
               Kết nối bạn bè - lan toả yêu thương:
             </span>

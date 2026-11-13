@@ -39,7 +39,7 @@ export const events = [
   {
     id: 5,
     time: "Tháng 8",
-    title: "Kỷ niệm câu lạc bộ",
+    title: "Kỷ niệm thành lập câu lạc bộ",
     description:
       "Hoạt động vui chơi, sinh hoạt, trao đổi và nêu những mục tiêu liên quan trong năm, sắp tới.",
     image:
@@ -61,14 +61,14 @@ export const events = [
     description:
       "Tham gia các hoạt động Phật Giáo lớn nhỏ trên địa bàn, khu vực. Kết nối và mở mang hiểu biết.",
     image:
-      "https://res.cloudinary.com/hztii11y/image/upload/f_auto,q_auto:best,w_1200,c_limit/v1794498779/main/events/07_hoat_dong_phat_giao.jpg",
+      "https://res.cloudinary.com/hztii11y/image/upload/f_auto,q_auto:best,w_1200,c_limit/v1794574706/main/events/07_hoat_dong_phat_giao.jpg",
   },
   {
     id: 8,
     time: "Tùy duyên",
     title: "Giao lưu câu lạc bộ",
     description:
-      "Giao lưu kết bạn, trải nghiệm và tham gia sinh hoạt, hoạt động cùng nhau.",
+      "Giao lưu kết bạn, trải nghiệm và tham gia sinh hoạt cùng nhau.",
     image:
       "https://res.cloudinary.com/hztii11y/image/upload/f_auto,q_auto:best,w_1200,c_limit/v1794498781/main/events/08_giao_luu_clb.jpg",
   },
@@ -79,6 +79,6 @@ export const events = [
     description:
       "Tham gia tu tập, học pháp và cùng nhau sinh hoạt trong khuôn viên chùa vào mỗi tối thứ 7 hàng tuần",
     image:
-      "https://res.cloudinary.com/hztii11y/image/upload/f_auto,q_auto:best,w_1200,c_limit/v1794498782/main/events/09_sinh_hoat_dinh_ky.jpg",
+      "https://res.cloudinary.com/hztii11y/image/upload/f_auto,q_auto:best,w_1200,c_limit/v1794574704/main/events/09_sinh_hoat_dinh_ky.jpg",
   },
 ];

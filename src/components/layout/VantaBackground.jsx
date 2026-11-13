@@ -26,12 +26,12 @@ export default function VantaBackground({ children }) {
         el: vantaRef.current,
         THREE: THREE,
         mouseControls: !prefersReducedMotion,
-        touchControls: !prefersReducedMotion,
+        touchControls: false,
         gyroControls: false,
         minHeight: 200,
         minWidth: 200,
         scale: 1.5,
-        scaleMobile: 2.0,
+        scaleMobile: 4.0,
         highlightColor: 0xeb3838,
         midtoneColor: 0xb51e24,
         lowlightColor: 0x5e0b10,
@@ -44,41 +44,68 @@ export default function VantaBackground({ children }) {
 
     loadVanta().catch(console.error);
 
-    // Tự động điều chỉnh hiệu năng khi chuyển tab hoặc cuộn sâu
+    // Dừng hẳn loop shader (speed: 0) khi đang cuộn màn hình hoặc vuốt ngón tay để GPU dồn sức cho 60/120fps
+    let scrollTimeout = null;
+    let isTouching = false;
+
+    const getBaseSpeed = () => {
+      const isScrolledDeep = window.scrollY > 1400;
+      return isScrolledDeep ? 0.5 : activeSpeed;
+    };
+
+    const pauseVanta = () => {
+      if (!effect || typeof effect.setOptions !== "function" || document.hidden) return;
+      effect.setOptions({ speed: 0 });
+    };
+
+    const resumeVanta = () => {
+      if (!effect || typeof effect.setOptions !== "function" || document.hidden || isTouching) return;
+      effect.setOptions({ speed: getBaseSpeed() });
+    };
+
     const handleVisibilityChange = () => {
-      if (!effect || typeof effect.setOptions !== "function") return;
       if (document.hidden) {
-        effect.setOptions({ speed: 0 });
+        pauseVanta();
       } else {
-        effect.setOptions({ speed: activeSpeed });
+        resumeVanta();
       }
     };
 
-    let ticking = false;
     const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          if (
-            effect &&
-            typeof effect.setOptions === "function" &&
-            !document.hidden
-          ) {
-            const isScrolledDeep = window.scrollY > 1400;
-            effect.setOptions({ speed: isScrolledDeep ? 0.5 : activeSpeed });
-          }
-          ticking = false;
-        });
-        ticking = true;
-      }
+      pauseVanta();
+      if (scrollTimeout) clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        resumeVanta();
+      }, 150);
+    };
+
+    const handleTouchStart = () => {
+      isTouching = true;
+      pauseVanta();
+    };
+
+    const handleTouchEnd = () => {
+      isTouching = false;
+      if (scrollTimeout) clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        resumeVanta();
+      }, 150);
     };
 
     document.addEventListener("visibilitychange", handleVisibilityChange);
     window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("touchstart", handleTouchStart, { passive: true });
+    window.addEventListener("touchend", handleTouchEnd, { passive: true });
+    window.addEventListener("touchcancel", handleTouchEnd, { passive: true });
 
     return () => {
       isMounted = false;
+      if (scrollTimeout) clearTimeout(scrollTimeout);
       document.removeEventListener("visibilitychange", handleVisibilityChange);
       window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("touchstart", handleTouchStart);
+      window.removeEventListener("touchend", handleTouchEnd);
+      window.removeEventListener("touchcancel", handleTouchEnd);
       if (effect) effect.destroy();
     };
   }, []);

@@ -380,7 +380,7 @@ export default function Gallery() {
                     <div className="absolute inset-0 bg-black/40 transition-opacity duration-500 group-[.swiper-slide-active]:opacity-0 opacity-100 pointer-events-none" />
 
                     {/* Biểu tượng gợi ý phóng to ảnh khi hover ở slide trung tâm */}
-                    <div className="absolute bottom-3 right-3 p-2 rounded-full bg-black/60 backdrop-blur-xs text-white opacity-0 group-[.swiper-slide-active]:group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
+                    <div className="absolute bottom-3 right-3 p-2 rounded-full bg-black/75 sm:bg-black/60 backdrop-blur-none sm:backdrop-blur-xs text-white opacity-0 group-[.swiper-slide-active]:group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
                       <ZoomIn className="w-4 h-4" />
                     </div>
                   </div>
@@ -403,7 +403,7 @@ export default function Gallery() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.22, ease: "easeOut" }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/98 backdrop-blur-xl p-3 sm:p-6 select-none overflow-hidden touch-none"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/98 backdrop-blur-none sm:backdrop-blur-xl p-3 sm:p-6 select-none overflow-hidden touch-none"
             onClick={handleClose}
             onWheel={(e) => {
               e.preventDefault();

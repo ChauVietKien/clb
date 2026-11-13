@@ -34,7 +34,7 @@ export default function MapLocation() {
       </p>
       <div
         ref={containerRef}
-        className="w-full h-[320px] sm:h-[420px] rounded-2xl overflow-hidden shadow-xl border border-amber-500/30 bg-black/20 backdrop-blur-xs relative"
+        className="w-full h-[320px] sm:h-[420px] rounded-2xl overflow-hidden shadow-xl border border-amber-500/30 bg-black/40 backdrop-blur-none sm:backdrop-blur-xs relative"
       >
         {isVisible ? (
           <iframe

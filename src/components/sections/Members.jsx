@@ -36,7 +36,7 @@ export default function Members() {
             priority
           />
         </div>
-        <span className="inline-block px-3 py-0.5 rounded-full text-xs font-semibold bg-amber-500/20 text-amber-300 border border-amber-400/40 mb-1.5 backdrop-blur-xs">
+        <span className="inline-block px-3 py-0.5 rounded-full text-xs font-semibold bg-amber-500/30 sm:bg-amber-500/20 text-amber-300 border border-amber-400/40 mb-1.5 backdrop-blur-none sm:backdrop-blur-xs">
           {advisor.role}
         </span>
         <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)]">

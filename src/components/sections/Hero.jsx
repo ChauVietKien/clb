@@ -65,7 +65,7 @@ export default function Hero() {
 
         {/* Khẩu hiệu / Slogan CLB */}
         <p className="text-center text-xs sm:text-sm md:text-base font-semibold tracking-wide text-amber-200/90 mt-4 sm:mt-5 drop-shadow-[0_1px_4px_rgba(0,0,0,0.6)]">
-          Tuổi Trẻ Hướng Phật — Kết Nối Yêu Thương — Tiếp Nối Hành Trình
+          Tuổi Trẻ Hướng Phật <br /> Kết Nối Yêu Thương — Tiếp Nối Hành Trình
         </p>
       </motion.div>
     </section>
