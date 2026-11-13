@@ -29,6 +29,15 @@ export default function Gallery() {
   const [scale, setScale] = useState(1);
   const [isPinching, setIsPinching] = useState(false);
   const [bounds, setBounds] = useState({ w: 800, h: 600 });
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [loadedIndices, setLoadedIndices] = useState(() => {
+    const initial = new Set();
+    const total = gallery.length || 1;
+    for (let offset = -3; offset <= 4; offset++) {
+      initial.add((offset + total) % total);
+    }
+    return initial;
+  });
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const swiperRef = useRef(null);
@@ -111,6 +120,26 @@ export default function Gallery() {
     resetZoom();
     setLightboxIndex(null);
   }, [resetZoom]);
+
+  // Cập nhật slide hiện tại và nạp thêm ảnh vào bộ nhớ đệm (không bao giờ unmount)
+  const updateActiveSlide = useCallback((swiper) => {
+    const current = swiper.realIndex;
+    setActiveIndex(current);
+    const total = gallery.length;
+    if (!total) return;
+    setLoadedIndices((prev) => {
+      let changed = false;
+      const next = new Set(prev);
+      for (let offset = -3; offset <= 4; offset++) {
+        const idx = (current + offset + total) % total;
+        if (!next.has(idx)) {
+          next.add(idx);
+          changed = true;
+        }
+      }
+      return changed ? next : prev;
+    });
+  }, []);
 
   // Cử chỉ chạm 2 ngón (Pinch) chuẩn Photos: mượt, co giãn tự nhiên, không lệch góc
   const handleTouchStart = (e) => {
@@ -309,6 +338,8 @@ export default function Gallery() {
               onSwiper={(swiper) => {
                 swiperRef.current = swiper;
               }}
+              onSlideChange={updateActiveSlide}
+              onRealIndexChange={updateActiveSlide}
               modules={[EffectCoverflow, Autoplay]}
               effect={"coverflow"}
               grabCursor={true}
@@ -359,33 +390,49 @@ export default function Gallery() {
               }}
               className="w-full py-3 !overflow-visible"
             >
-              {slides.map((item, index) => (
-                <SwiperSlide
-                  key={`${item.id || index}-${index}`}
-                  className="group !w-[270px] sm:!w-[420px] md:!w-[560px] aspect-[16/9] cursor-pointer"
-                >
-                  <div
-                    onClick={() => openLightbox(item.id)}
-                    className="relative w-full h-full rounded-2xl overflow-hidden transition-[opacity,filter] duration-500 ease-out transform-gpu opacity-0 pointer-events-none scale-90 group-[.swiper-slide-active]:opacity-100 group-[.swiper-slide-active]:pointer-events-auto group-[.swiper-slide-active]:scale-100 group-[.swiper-slide-active]:translate-y-0 group-[.swiper-slide-active]:brightness-100 group-[.swiper-slide-active]:shadow-[0_20px_50px_rgba(0,0,0,0.7)] group-[.swiper-slide-active]:ring-1 group-[.swiper-slide-active]:ring-white/20 group-[.swiper-slide-prev]:opacity-60 group-[.swiper-slide-prev]:pointer-events-auto group-[.swiper-slide-prev]:brightness-50 group-[.swiper-slide-prev]:translate-y-3 group-[.swiper-slide-prev]:hover:opacity-85 group-[.swiper-slide-prev]:hover:brightness-75 group-[.swiper-slide-next]:opacity-60 group-[.swiper-slide-next]:pointer-events-auto group-[.swiper-slide-next]:brightness-50 group-[.swiper-slide-next]:translate-y-3 group-[.swiper-slide-next]:hover:opacity-85 group-[.swiper-slide-next]:hover:brightness-75"
-                  >
-                    <Image
-                      src={item.src}
-                      alt={item.alt || `Hoạt động ${item.id}`}
-                      fill
-                      sizes="(max-width: 640px) 270px, (max-width: 768px) 420px, 560px"
-                      className="object-cover select-none"
-                      draggable={false}
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-black/40 transition-opacity duration-500 group-[.swiper-slide-active]:opacity-0 opacity-100 pointer-events-none" />
+              {slides.map((item, index) => {
+                const total = slides.length;
+                const forwardDiff = (index - activeIndex + total) % total;
+                // Vùng đệm 8 ảnh đón đầu (active, 4 tới, 3 lùi)
+                const isCurrentBuffer =
+                  forwardDiff <= 4 || forwardDiff >= total - 3;
+                // Render nếu nằm trong vùng đệm hiện tại HOẶC đã từng được nạp trước đó
+                const shouldRender = isCurrentBuffer || loadedIndices.has(index);
 
-                    {/* Biểu tượng gợi ý phóng to ảnh khi hover ở slide trung tâm */}
-                    <div className="absolute bottom-3 right-3 p-2 rounded-full bg-black/75 sm:bg-black/60 backdrop-blur-none sm:backdrop-blur-xs text-white opacity-0 group-[.swiper-slide-active]:group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
-                      <ZoomIn className="w-4 h-4" />
+                return (
+                  <SwiperSlide
+                    key={`${item.id || index}-${index}`}
+                    className="group !w-[270px] sm:!w-[420px] md:!w-[560px] aspect-[16/9] cursor-pointer"
+                  >
+                    <div
+                      onClick={() => openLightbox(item.id)}
+                      className="relative w-full h-full rounded-2xl overflow-hidden transition-[opacity,filter] duration-500 ease-out transform-gpu opacity-0 pointer-events-none scale-90 group-[.swiper-slide-active]:opacity-100 group-[.swiper-slide-active]:pointer-events-auto group-[.swiper-slide-active]:scale-100 group-[.swiper-slide-active]:translate-y-0 group-[.swiper-slide-active]:brightness-100 group-[.swiper-slide-active]:shadow-[0_20px_50px_rgba(0,0,0,0.7)] group-[.swiper-slide-active]:ring-1 group-[.swiper-slide-active]:ring-white/20 group-[.swiper-slide-prev]:opacity-60 group-[.swiper-slide-prev]:pointer-events-auto group-[.swiper-slide-prev]:brightness-50 group-[.swiper-slide-prev]:translate-y-3 group-[.swiper-slide-prev]:hover:opacity-85 group-[.swiper-slide-prev]:hover:brightness-75 group-[.swiper-slide-next]:opacity-60 group-[.swiper-slide-next]:pointer-events-auto group-[.swiper-slide-next]:brightness-50 group-[.swiper-slide-next]:translate-y-3 group-[.swiper-slide-next]:hover:opacity-85 group-[.swiper-slide-next]:hover:brightness-75"
+                    >
+                      {shouldRender ? (
+                        <>
+                          <Image
+                            src={item.src}
+                            alt={item.alt || `Hoạt động ${item.id}`}
+                            fill
+                            sizes="(max-width: 640px) 270px, (max-width: 768px) 420px, 560px"
+                            className="object-cover select-none"
+                            draggable={false}
+                            loading="lazy"
+                          />
+                          <div className="absolute inset-0 bg-black/40 transition-opacity duration-500 group-[.swiper-slide-active]:opacity-0 opacity-100 pointer-events-none" />
+
+                          {/* Biểu tượng gợi ý phóng to ảnh khi hover ở slide trung tâm */}
+                          <div className="absolute bottom-3 right-3 p-2 rounded-full bg-black/75 sm:bg-black/60 backdrop-blur-none sm:backdrop-blur-xs text-white opacity-0 group-[.swiper-slide-active]:group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
+                            <ZoomIn className="w-4 h-4" />
+                          </div>
+                        </>
+                      ) : (
+                        <div className="w-full h-full bg-black/40" />
+                      )}
                     </div>
-                  </div>
-                </SwiperSlide>
-              ))}
+                  </SwiperSlide>
+                );
+              })}
             </Swiper>
           ) : (
             <div className="w-full py-8 flex items-center justify-center">
