@@ -56,19 +56,17 @@ export default function Members() {
         <div className="h-px bg-gradient-to-r from-transparent via-amber-400/40 to-transparent flex-1" />
       </div>
 
-      {/* Grid of members */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-6 max-w-6xl mx-auto px-4">
-        {members.map((member, idx) => (
-          <motion.div
+      {/* Grid of members - Animate cả cụm 1 lần để tối ưu 60fps trên mobile */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.1, margin: "0px 0px -100px 0px" }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-6 max-w-6xl mx-auto px-4"
+      >
+        {members.map((member) => (
+          <div
             key={member.id}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.15 }}
-            transition={{
-              duration: 0.5,
-              delay: idx * 0.06,
-              ease: "easeOut",
-            }}
             className="flex flex-col items-center group p-2"
           >
             <div className="relative w-20 h-20 sm:w-24 sm:h-24 mb-3 sm:mb-4 rounded-full overflow-hidden shadow-md shadow-black/15 ring-2 ring-amber-400/30 group-hover:ring-amber-400 transition-all duration-300 group-hover:scale-105">
@@ -87,9 +85,9 @@ export default function Members() {
             <p className="text-amber-300 font-medium text-xs sm:text-sm mt-0.5 sm:mt-1 drop-shadow-[0_1px_3px_rgba(0,0,0,0.5)]">
               {member.role}
             </p>
-          </motion.div>
+          </div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 }
