@@ -338,15 +338,14 @@ export default function Gallery() {
               onSwiper={(swiper) => {
                 swiperRef.current = swiper;
               }}
-              onSlideChange={updateActiveSlide}
-              onRealIndexChange={updateActiveSlide}
+              onSlideChangeTransitionEnd={updateActiveSlide}
               modules={[EffectCoverflow, Autoplay]}
               effect={"coverflow"}
               grabCursor={true}
               centeredSlides={true}
               slidesPerView={"auto"}
               loop={true}
-              speed={900}
+              speed={450}
               watchSlidesProgress={true}
               slideToClickedSlide={true}
               autoplay={{
@@ -406,7 +405,7 @@ export default function Gallery() {
                   >
                     <div
                       onClick={() => openLightbox(item.id)}
-                      className="relative w-full h-full rounded-2xl overflow-hidden transition-[opacity,filter] duration-500 ease-out transform-gpu opacity-0 pointer-events-none scale-90 group-[.swiper-slide-active]:opacity-100 group-[.swiper-slide-active]:pointer-events-auto group-[.swiper-slide-active]:scale-100 group-[.swiper-slide-active]:translate-y-0 group-[.swiper-slide-active]:brightness-100 group-[.swiper-slide-active]:shadow-[0_20px_50px_rgba(0,0,0,0.7)] group-[.swiper-slide-active]:ring-1 group-[.swiper-slide-active]:ring-white/20 group-[.swiper-slide-prev]:opacity-60 group-[.swiper-slide-prev]:pointer-events-auto group-[.swiper-slide-prev]:brightness-50 group-[.swiper-slide-prev]:translate-y-3 group-[.swiper-slide-prev]:hover:opacity-85 group-[.swiper-slide-prev]:hover:brightness-75 group-[.swiper-slide-next]:opacity-60 group-[.swiper-slide-next]:pointer-events-auto group-[.swiper-slide-next]:brightness-50 group-[.swiper-slide-next]:translate-y-3 group-[.swiper-slide-next]:hover:opacity-85 group-[.swiper-slide-next]:hover:brightness-75"
+                      className="relative w-full h-full rounded-2xl overflow-hidden transition-opacity duration-300 ease-out transform-gpu opacity-0 pointer-events-none scale-90 group-[.swiper-slide-active]:opacity-100 group-[.swiper-slide-active]:pointer-events-auto group-[.swiper-slide-active]:scale-100 group-[.swiper-slide-active]:translate-y-0 group-[.swiper-slide-active]:shadow-[0_12px_36px_rgba(0,0,0,0.5)] group-[.swiper-slide-active]:ring-1 group-[.swiper-slide-active]:ring-white/20 group-[.swiper-slide-prev]:opacity-65 group-[.swiper-slide-prev]:pointer-events-auto group-[.swiper-slide-prev]:translate-y-3 group-[.swiper-slide-prev]:hover:opacity-85 group-[.swiper-slide-next]:opacity-65 group-[.swiper-slide-next]:pointer-events-auto group-[.swiper-slide-next]:translate-y-3 group-[.swiper-slide-next]:hover:opacity-85"
                     >
                       {shouldRender ? (
                         <>
@@ -419,7 +418,7 @@ export default function Gallery() {
                             draggable={false}
                             loading="lazy"
                           />
-                          <div className="absolute inset-0 bg-black/40 transition-opacity duration-500 group-[.swiper-slide-active]:opacity-0 opacity-100 pointer-events-none" />
+                          <div className="absolute inset-0 bg-black/45 transition-opacity duration-300 group-[.swiper-slide-active]:opacity-0 opacity-100 pointer-events-none" />
 
                           {/* Biểu tượng gợi ý phóng to ảnh khi hover ở slide trung tâm */}
                           <div className="absolute bottom-3 right-3 p-2 rounded-full bg-black/75 sm:bg-black/60 backdrop-blur-none sm:backdrop-blur-xs text-white opacity-0 group-[.swiper-slide-active]:group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
