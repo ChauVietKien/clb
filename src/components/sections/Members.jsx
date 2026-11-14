@@ -33,7 +33,7 @@ export default function Members() {
             fill
             sizes="(max-width: 640px) 96px, 112px"
             className="object-cover object-[center_20%]"
-            priority
+            loading="lazy"
           />
         </div>
         <span className="inline-block px-3 py-0.5 rounded-full text-xs font-semibold bg-amber-500/30 sm:bg-amber-500/20 text-amber-300 border border-amber-400/40 mb-1.5 backdrop-blur-none sm:backdrop-blur-xs">
