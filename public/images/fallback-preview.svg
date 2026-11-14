@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 650" width="100%" height="100%">
+  <defs>
+    <!-- Radial Gradient chuẩn xác 100% như cấu hình CSS -->
+    <radialGradient id="fallbackGrad" cx="50%" cy="0%" r="90%" fx="50%" fy="0%">
+      <stop offset="0%" stop-color="#540e15" />
+      <stop offset="45%" stop-color="#260408" />
+      <stop offset="100%" stop-color="#120103" />
+    </radialGradient>
+
+    <!-- Shadow filter cho các khối và chữ -->
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+    <filter id="textGlow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="6" flood-color="#000000" flood-opacity="0.8"/>
+    </filter>
+  </defs>
+
+  <!-- NỀN ĐỎ RUBY FALLBACK (TỰ ĐỘNG HIỆN KHI MÁY YẾU / CHẶN WEBGL) -->
+  <rect width="1000" height="650" fill="url(#fallbackGrad)" />
+
+  <!-- THANH NAVBAR TRÊN CÙNG -->
+  <rect width="1000" height="64" fill="#000000" fill-opacity="0.45" />
+  <line x1="0" y1="64" x2="1000" y2="64" stroke="#ffffff" stroke-opacity="0.1" stroke-width="1" />
+
+  <!-- Logo Navbar -->
+  <circle cx="50" cy="32" r="16" fill="#b51e24" stroke="#fcd34d" stroke-width="1.5" />
+  <text x="50" y="37" font-family="system-ui, sans-serif" font-size="14" fill="#fde68a" text-anchor="middle" font-weight="bold">☸</text>
+  <text x="76" y="37" font-family="system-ui, sans-serif" font-size="14" fill="#fde68a" font-weight="700">CLB TTN Phật Tử Chùa Châu Hoằng Liên Xã</text>
+
+  <!-- Menu links -->
+  <text x="680" y="37" font-family="system-ui, sans-serif" font-size="13" fill="#fef3c7" font-weight="500">Tổng quan</text>
+  <text x="760" y="37" font-family="system-ui, sans-serif" font-size="13" fill="#fef3c7" font-weight="500">Hình ảnh</text>
+  <text x="835" y="37" font-family="system-ui, sans-serif" font-size="13" fill="#fef3c7" font-weight="500">Sự kiện</text>
+  <text x="905" y="37" font-family="system-ui, sans-serif" font-size="13" fill="#fcd34d" font-weight="700">Sinh hoạt</text>
+
+  <!-- PHẦN HERO TRANG CHỦ -->
+  <text x="500" y="130" font-family="system-ui, sans-serif" font-size="12" fill="#fde68a" fill-opacity="0.85" text-anchor="middle" font-weight="700" letter-spacing="3">CHÀO MỪNG ĐẾN VỚI</text>
+  <text x="500" y="175" font-family="system-ui, sans-serif" font-size="34" fill="#fcd34d" text-anchor="middle" font-weight="800" filter="url(#textGlow)">CLB Thanh Thiếu Niên Phật Tử</text>
+  <text x="500" y="215" font-family="system-ui, sans-serif" font-size="30" fill="#fcd34d" text-anchor="middle" font-weight="800" filter="url(#textGlow)">— Chùa Châu Hoằng Liên Xã —</text>
+  <text x="500" y="255" font-family="system-ui, sans-serif" font-size="15" fill="#e5e7eb" fill-opacity="0.9" text-anchor="middle" font-weight="400">Không gian kết nối các bạn trẻ, cùng học hỏi, tu học và phụng sự Tam Bảo.</text>
+
+  <!-- BẢNG MÃ MÀU THỰC TẾ TRÊN NỀN -->
+  <g transform="translate(230, 280)">
+    <rect width="540" height="42" rx="10" fill="#000000" fill-opacity="0.4" stroke="#f59e0b" stroke-opacity="0.3" stroke-width="1" />
+    
+    <rect x="25" y="12" width="18" height="18" rx="4" fill="#540e15" stroke="#ffffff" stroke-width="1" stroke-opacity="0.4" />
+    <text x="52" y="26" font-family="monospace" font-size="12" fill="#fde68a" font-weight="bold">Đỉnh: #540e15</text>
+
+    <rect x="205" y="12" width="18" height="18" rx="4" fill="#260408" stroke="#ffffff" stroke-width="1" stroke-opacity="0.4" />
+    <text x="232" y="26" font-family="monospace" font-size="12" fill="#fde68a" font-weight="bold">Giữa: #260408</text>
+
+    <rect x="385" y="12" width="18" height="18" rx="4" fill="#120103" stroke="#ffffff" stroke-width="1" stroke-opacity="0.4" />
+    <text x="412" y="26" font-family="monospace" font-size="12" fill="#fde68a" font-weight="bold">Đáy: #120103</text>
+  </g>
+
+  <!-- 3 THẺ GIỚI THIỆU MẪU (THỰC TẾ HIỂN THỊ TRÊN MÁY YẾU) -->
+  <g transform="translate(60, 360)">
+    <!-- Thẻ 1 -->
+    <g transform="translate(0, 0)" filter="url(#cardShadow)">
+      <rect width="270" height="160" rx="14" fill="#fff8f4" fill-opacity="0.97" />
+      <rect width="5" height="160" rx="2" fill="#d97706" />
+      <text x="22" y="38" font-family="system-ui, sans-serif" font-size="15" fill="#b45309" font-weight="700">Ngôi nhà thứ 2</text>
+      <text x="22" y="68" font-family="system-ui, sans-serif" font-size="13" fill="#374151" width="225">
+        <tspan x="22" dy="0">Nơi gặp gỡ, giao lưu sinh</tspan>
+        <tspan x="22" dy="20">hoạt của các bạn trẻ tại</tspan>
+        <tspan x="22" dy="20">Chùa Châu Hoằng Liên Xã.</tspan>
+      </text>
+    </g>
+
+    <!-- Thẻ 2 -->
+    <g transform="translate(305, 0)" filter="url(#cardShadow)">
+      <rect width="270" height="160" rx="14" fill="#fff8f4" fill-opacity="0.97" />
+      <rect width="5" height="160" rx="2" fill="#d97706" />
+      <text x="22" y="38" font-family="system-ui, sans-serif" font-size="15" fill="#b45309" font-weight="700">Chung tay phụng sự</text>
+      <text x="22" y="68" font-family="system-ui, sans-serif" font-size="13" fill="#374151">
+        <tspan x="22" dy="0">Cùng nhau phụ giúp các</tspan>
+        <tspan x="22" dy="20">ngày lễ, sự kiện lớn nhỏ</tspan>
+        <tspan x="22" dy="20">tại khuôn viên chùa.</tspan>
+      </text>
+    </g>
+
+    <!-- Thẻ 3 -->
+    <g transform="translate(610, 0)" filter="url(#cardShadow)">
+      <rect width="270" height="160" rx="14" fill="#fff8f4" fill-opacity="0.97" />
+      <rect width="5" height="160" rx="2" fill="#d97706" />
+      <text x="22" y="38" font-family="system-ui, sans-serif" font-size="15" fill="#b45309" font-weight="700">Lan toả yêu thương</text>
+      <text x="22" y="68" font-family="system-ui, sans-serif" font-size="13" fill="#374151">
+        <tspan x="22" dy="0">Môi trường sinh hoạt tập</tspan>
+        <tspan x="22" dy="20">thể, thân thiện và ấm áp</tspan>
+        <tspan x="22" dy="20">cho thanh thiếu niên.</tspan>
+      </text>
+    </g>
+  </g>
+
+  <!-- CHÂN TRANG ĐÁY MÀU #120103 -->
+  <line x1="60" y1="580" x2="940" y2="580" stroke="#fcd34d" stroke-opacity="0.2" stroke-width="1" />
+  <text x="500" y="615" font-family="system-ui, sans-serif" font-size="12" fill="#fde68a" fill-opacity="0.75" text-anchor="middle">
+    Tự động hiển thị mượt mà trên mọi thiết bị — 0% chớp trắng màn hình
+  </text>
+</svg>

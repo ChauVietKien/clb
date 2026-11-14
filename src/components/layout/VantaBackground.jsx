@@ -17,32 +17,37 @@ export default function VantaBackground({ children }) {
     const activeSpeed = prefersReducedMotion ? 1.0 : 2.0;
 
     const loadVanta = async () => {
-      const THREE = await import("three");
-      const VANTA = await import("vanta/dist/vanta.fog.min");
+      try {
+        const THREE = await import("three");
+        const VANTA = await import("vanta/dist/vanta.fog.min");
 
-      if (!isMounted || !vantaRef.current) return;
+        if (!isMounted || !vantaRef.current) return;
 
-      effect = VANTA.default({
-        el: vantaRef.current,
-        THREE: THREE,
-        mouseControls: !prefersReducedMotion,
-        touchControls: false,
-        gyroControls: false,
-        minHeight: 200,
-        minWidth: 200,
-        scale: 1.5,
-        scaleMobile: 4.0,
-        highlightColor: 0xeb3838,
-        midtoneColor: 0xb51e24,
-        lowlightColor: 0x5e0b10,
-        baseColor: 0x821217,
-        blurFactor: 0.6,
-        zoom: 1,
-        speed: activeSpeed,
-      });
+        effect = VANTA.default({
+          el: vantaRef.current,
+          THREE: THREE,
+          mouseControls: !prefersReducedMotion,
+          touchControls: false,
+          gyroControls: false,
+          minHeight: 200,
+          minWidth: 200,
+          scale: 1.5,
+          scaleMobile: 4.0,
+          highlightColor: 0xeb3838,
+          midtoneColor: 0xb51e24,
+          lowlightColor: 0x5e0b10,
+          baseColor: 0x821217,
+          blurFactor: 0.6,
+          zoom: 1,
+          speed: activeSpeed,
+        });
+      } catch (err) {
+        // Tự động dùng nền tĩnh gradient nếu thiết bị không hỗ trợ WebGL
+        console.warn("Vanta WebGL unavailable, using static gradient fallback:", err);
+      }
     };
 
-    loadVanta().catch(console.error);
+    loadVanta().catch(() => {});
 
     // Dừng hẳn loop shader (speed: 0) khi đang cuộn màn hình hoặc vuốt ngón tay để GPU dồn sức cho 60/120fps
     let scrollTimeout = null;
@@ -111,8 +116,13 @@ export default function VantaBackground({ children }) {
   }, []);
 
   return (
-    <div className="relative min-h-screen">
-      {/* Canvas sương mờ cố định viewport ở z-0, tối ưu 60fps không bị reflow khi cuộn */}
+    <div className="relative min-h-screen bg-[#120103]">
+      {/* Nền gradient tĩnh dự phòng đồng bộ 100% tone màu đỏ ruby của Vanta Fog */}
+      <div
+        aria-hidden="true"
+        className="fixed inset-0 w-full h-full pointer-events-none z-0 bg-[radial-gradient(ellipse_at_top,#540e15_0%,#260408_45%,#120103_100%)]"
+      />
+      {/* Canvas sương mờ Vanta 3D (phủ động lên trên khi thiết bị có WebGL) */}
       <div
         ref={vantaRef}
         aria-hidden="true"

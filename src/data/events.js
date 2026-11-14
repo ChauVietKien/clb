@@ -61,7 +61,7 @@ export const events = [
     description:
       "Tham gia các hoạt động Phật Giáo lớn nhỏ trên địa bàn, khu vực. Kết nối và mở mang hiểu biết.",
     image:
-      "https://res.cloudinary.com/hztii11y/image/upload/f_auto,q_auto:best,w_1200,c_limit/v1794576930/main/events/07_hoat_dong_phat_giao.jpg",
+      "https://res.cloudinary.com/hztii11y/image/upload/f_auto,q_auto:best,e_sharpen:100,w_1200,c_limit/v1794576930/main/events/07_hoat_dong_phat_giao.jpg",
   },
   {
     id: 8,
@@ -70,7 +70,7 @@ export const events = [
     description:
       "Giao lưu kết bạn, trải nghiệm và tham gia sinh hoạt cùng nhau.",
     image:
-      "https://res.cloudinary.com/hztii11y/image/upload/f_auto,q_auto:best,w_1200,c_limit/v1794498781/main/events/08_giao_luu_clb.jpg",
+      "https://res.cloudinary.com/hztii11y/image/upload/f_auto,q_auto:best,w_1200,c_limit/v1794402593/IMG_0516.jpg",
   },
   {
     id: 9,

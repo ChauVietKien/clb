@@ -6,7 +6,7 @@ import VantaBackground from "@/components/layout/VantaBackground";
 
 export const metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "https://chuachauhoang.pages.dev"
+    process.env.NEXT_PUBLIC_SITE_URL || "https://chuachauhoang.website"
   ),
   title: "CLB TTN Phật Tử Chùa Châu Hoằng Liên Xã",
   description:
@@ -28,12 +28,12 @@ export const metadata = {
     title: "CLB TTN Phật Tử Chùa Châu Hoằng Liên Xã",
     description:
       "Câu lạc bộ thanh thiếu niên Phật tử Chùa Châu Hoằng Liên Xã — Kết nối cộng đồng và lan tỏa các hoạt động thiện nguyện.",
-    url: "https://chuachauhoang.pages.dev",
+    url: "https://chuachauhoang.website",
     siteName: "CLB TTN Phật Tử Chùa Châu Hoằng Liên Xã",
     images: [
       {
-        url: "https://chuachauhoang.pages.dev/images/og-image.jpg",
-        secureUrl: "https://chuachauhoang.pages.dev/images/og-image.jpg",
+        url: "https://chuachauhoang.website/images/og-image.jpg",
+        secureUrl: "https://chuachauhoang.website/images/og-image.jpg",
         width: 1200,
         height: 630,
         type: "image/jpeg",
