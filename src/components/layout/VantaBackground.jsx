@@ -9,6 +9,19 @@ export default function VantaBackground({ children }) {
     let effect = null;
     let isMounted = true;
 
+    // Phát hiện trình duyệt nhúng Webview (Facebook In-App Browser, Zalo, Instagram, Android Webview)
+    // Các ứng dụng này bóp nghẹt GPU nên tự động chuyển sang nền tĩnh cao cấp để đạt 60fps mượt 100%
+    const isWebView =
+      typeof window !== "undefined" &&
+      (/; wv\b/i.test(navigator.userAgent) ||
+        /FBAN|FBAV|FB_IAB|FB4A|Instagram|Zalo|Line\/|TikTok|MicroMessenger/i.test(
+          navigator.userAgent
+        ));
+
+    if (isWebView) {
+      return; // Không nạp Three.js / Vanta, loại bỏ hoàn toàn độ trễ INP trên Webview
+    }
+
     // Tôn trọng cài đặt giảm chuyển động của hệ điều hành
     const prefersReducedMotion =
       typeof window !== "undefined" &&
@@ -116,11 +129,11 @@ export default function VantaBackground({ children }) {
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-[#120103]">
-      {/* Nền gradient tĩnh dự phòng đồng bộ 100% tone màu đỏ ruby của Vanta Fog */}
+    <div className="relative min-h-screen bg-[#0d0102]">
+      {/* Nền gradient tĩnh cao cấp đồng bộ tone đỏ ruby ấm của Vanta Fog, chiều sâu sang trọng */}
       <div
         aria-hidden="true"
-        className="fixed inset-0 w-full h-full pointer-events-none z-0 bg-[radial-gradient(ellipse_at_top,#540e15_0%,#260408_45%,#120103_100%)]"
+        className="fixed inset-0 w-full h-full pointer-events-none z-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,#6b111a_0%,#3a060c_40%,#180204_75%,#0d0102_100%)]"
       />
       {/* Canvas sương mờ Vanta 3D (phủ động lên trên khi thiết bị có WebGL) */}
       <div
