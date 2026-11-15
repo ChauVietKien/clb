@@ -129,11 +129,11 @@ export default function VantaBackground({ children }) {
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-[#220306]">
-      {/* Nền gradient tĩnh tươi sáng đồng bộ 100% dải màu đỏ ruby của Three.js Vanta Fog */}
+    <div className="relative min-h-screen bg-[#3d050a]">
+      {/* Nền gradient tĩnh đỏ ruby đồng bộ toàn diện từ trên xuống dưới theo dải màu Three.js Vanta */}
       <div
         aria-hidden="true"
-        className="fixed inset-0 w-full h-full pointer-events-none z-0 bg-[radial-gradient(ellipse_100%_70%_at_50%_0%,#a81e26_0%,#821217_35%,#4f080e_70%,#220306_100%)]"
+        className="fixed inset-0 w-full h-full pointer-events-none z-0 bg-[radial-gradient(ellipse_120%_90%_at_50%_45%,#8a141b_0%,#6b0d13_45%,#4f080e_80%,#3d050a_100%)]"
       />
       {/* Canvas sương mờ Vanta 3D (phủ động lên trên khi thiết bị có WebGL) */}
       <div
