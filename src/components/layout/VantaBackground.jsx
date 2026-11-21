@@ -46,10 +46,10 @@ export default function VantaBackground({ children }) {
           minWidth: 200,
           scale: 1.5,
           scaleMobile: 4.0,
-          highlightColor: 0xeb3838,
-          midtoneColor: 0xb51e24,
-          lowlightColor: 0x5e0b10,
-          baseColor: 0x821217,
+          highlightColor: 0xf24444,
+          midtoneColor: 0xc9262d,
+          lowlightColor: 0x781219,
+          baseColor: 0x9e171f,
           blurFactor: 0.6,
           zoom: 1,
           speed: activeSpeed,
@@ -60,7 +60,18 @@ export default function VantaBackground({ children }) {
       }
     };
 
-    loadVanta().catch(() => {});
+    let idleId = null;
+    let timerId = null;
+
+    if (typeof window !== "undefined" && "requestIdleCallback" in window) {
+      idleId = window.requestIdleCallback(() => {
+        loadVanta().catch(() => {});
+      }, { timeout: 2000 });
+    } else {
+      timerId = setTimeout(() => {
+        loadVanta().catch(() => {});
+      }, 1000);
+    }
 
     // Dừng hẳn loop shader (speed: 0) khi đang cuộn màn hình hoặc vuốt ngón tay để GPU dồn sức cho 60/120fps
     let scrollTimeout = null;
@@ -118,6 +129,10 @@ export default function VantaBackground({ children }) {
 
     return () => {
       isMounted = false;
+      if (idleId && typeof window !== "undefined" && "cancelIdleCallback" in window) {
+        window.cancelIdleCallback(idleId);
+      }
+      if (timerId) clearTimeout(timerId);
       if (scrollTimeout) clearTimeout(scrollTimeout);
       document.removeEventListener("visibilitychange", handleVisibilityChange);
       window.removeEventListener("scroll", handleScroll);
@@ -129,11 +144,11 @@ export default function VantaBackground({ children }) {
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-[#3d050a]">
+    <div className="relative min-h-screen bg-[#520b12]">
       {/* Nền gradient tĩnh đỏ ruby đồng bộ toàn diện từ trên xuống dưới theo dải màu Three.js Vanta */}
       <div
         aria-hidden="true"
-        className="fixed inset-0 w-full h-full pointer-events-none z-0 bg-[radial-gradient(ellipse_120%_90%_at_50%_45%,#8a141b_0%,#6b0d13_45%,#4f080e_80%,#3d050a_100%)]"
+        className="fixed inset-0 w-full h-full pointer-events-none z-0 bg-[radial-gradient(ellipse_120%_90%_at_50%_45%,#ad1822_0%,#8c1119_45%,#6e0d15_80%,#520b12_100%)]"
       />
       {/* Canvas sương mờ Vanta 3D (phủ động lên trên khi thiết bị có WebGL) */}
       <div

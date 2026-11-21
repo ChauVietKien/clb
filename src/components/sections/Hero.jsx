@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 
 export default function Hero() {
   return (
@@ -46,21 +45,33 @@ export default function Hero() {
         transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
         className="w-full max-w-6xl mx-auto px-3 sm:px-6"
       >
-        <div className="w-full h-[260px] sm:h-[420px] md:h-[580px] lg:h-[720px] overflow-hidden relative rounded-2xl sm:rounded-3xl shadow-xl shadow-black/50">
-          <Image
-            src="https://res.cloudinary.com/hztii11y/image/upload/f_auto,q_100,e_sharpen:90/v1794412352/hero.jpg"
-            alt="Ảnh tập thể thành viên CLB TTN Phật Tử Chùa Châu Hoằng Liên Xã"
-            fill
-            priority
-            sizes="(max-width: 640px) 100vw, (max-width: 1200px) 90vw, 1200px"
-            className="w-full h-full object-cover"
-            style={{
-              WebkitMaskImage:
-                "linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)",
-              maskImage:
-                "linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)",
-            }}
-          />
+        <div className="w-full h-[260px] sm:h-[420px] md:h-[580px] lg:h-[720px] overflow-hidden relative rounded-2xl sm:rounded-3xl shadow-xl shadow-black/50 bg-[#520b12]">
+          <picture className="w-full h-full">
+            {/* Mobile (< 640px): Tối ưu Retina 2x/3x (1080px), độ nét cao e_sharpen:90, tải tức thì ~220KB */}
+            <source
+              media="(max-width: 640px)"
+              srcSet="https://res.cloudinary.com/hztii11y/image/upload/f_auto,q_auto:best,w_1080,c_limit,e_sharpen:90/v1794412352/hero.jpg"
+            />
+            {/* Tablet (641px - 1024px): 1600px, e_sharpen:85, dung lượng ~450KB */}
+            <source
+              media="(max-width: 1024px)"
+              srcSet="https://res.cloudinary.com/hztii11y/image/upload/f_auto,q_auto:best,w_1600,c_limit,e_sharpen:85/v1794412352/hero.jpg"
+            />
+            {/* Desktop (> 1024px, màn hình 2K/4K): Bản 2400px siêu nét từng gương mặt, e_sharpen:85 */}
+            <img
+              src="https://res.cloudinary.com/hztii11y/image/upload/f_auto,q_auto:best,w_2400,c_limit,e_sharpen:85/v1794412352/hero.jpg"
+              alt="Ảnh tập thể thành viên CLB TTN Phật Tử Chùa Châu Hoằng Liên Xã"
+              fetchPriority="high"
+              decoding="async"
+              className="w-full h-full object-cover"
+              style={{
+                WebkitMaskImage:
+                  "linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)",
+                maskImage:
+                  "linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)",
+              }}
+            />
+          </picture>
         </div>
 
         {/* Khẩu hiệu / Slogan CLB */}

@@ -4,7 +4,6 @@ import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import styles from "./Navbar.module.css";
 
 const navLinks = [
   { href: "/#about", label: "Tổng quan", id: "about" },
@@ -55,15 +54,15 @@ export default function Navbar() {
     <nav className="backdrop-blur-none sm:backdrop-blur-sm bg-black/25 sm:bg-black/20 border-b border-amber-400/15 shadow-sm fixed w-full z-30 top-0 left-0 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <div className={styles.logo}>
+          <div className="flex items-center">
             <Link
               href="/"
-              className={styles.logoLink}
+              className="flex items-center gap-1.5 sm:gap-2 no-underline"
               onClick={() => setMobileMenuOpen(false)}
             >
               <div className="relative w-9 h-9 sm:w-11 sm:h-11 shrink-0">
                 <Image
-                  className={styles.logoImage}
+                  className="object-cover rounded-full"
                   src="/images/logo.jpg"
                   alt="CLB Logo"
                   fill
@@ -71,7 +70,7 @@ export default function Navbar() {
                   priority
                 />
               </div>
-              <p className={styles.logoText}>
+              <p className="text-[11px] sm:text-xs md:text-[13px] max-w-[215px] sm:max-w-none font-semibold text-amber-50 m-0 leading-tight sm:leading-snug text-left drop-shadow-[0_1px_3px_rgba(0,0,0,0.6)]">
                 CLB TTN Phật Tử Chùa{" "}
                 <span className="inline-block whitespace-nowrap">
                   Châu Hoằng
@@ -88,12 +87,11 @@ export default function Navbar() {
                 <Link
                   key={id}
                   href={href}
-                  className={[
-                    "px-3 py-2 text-sm font-medium transition-all duration-200 border-b-2",
+                  className={`px-3 py-2 text-sm font-medium transition-all duration-200 border-b-2 ${
                     activeSection === id
                       ? "text-amber-300 border-amber-400 font-semibold drop-shadow-[0_1px_3px_rgba(0,0,0,0.5)]"
-                      : "text-amber-100/90 border-transparent hover:text-white hover:border-amber-400/40",
-                  ].join(" ")}
+                      : "text-amber-100/90 border-transparent hover:text-white hover:border-amber-400/40"
+                  }`}
                 >
                   {label}
                 </Link>
@@ -135,12 +133,11 @@ export default function Navbar() {
                 key={id}
                 href={href}
                 onClick={() => setMobileMenuOpen(false)}
-                className={[
-                  "block px-3.5 py-2.5 rounded-xl text-sm transition-all duration-150",
+                className={`block px-3.5 py-2.5 rounded-xl text-sm transition-all duration-150 ${
                   activeSection === id
                     ? "text-amber-300 bg-amber-500/20 border border-amber-400/30 font-semibold shadow-xs"
-                    : "text-amber-100/85 hover:text-white hover:bg-white/10 font-medium",
-                ].join(" ")}
+                    : "text-amber-100/85 hover:text-white hover:bg-white/10 font-medium"
+                }`}
               >
                 {label}
               </Link>
