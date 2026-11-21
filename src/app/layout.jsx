@@ -62,7 +62,23 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="vi" className="scroll-smooth">
-      <head />
+      <head>
+        {/* Preload ảnh Hero theo kích thước thiết bị để đạt LCP nhanh nhất */}
+        <link
+          rel="preload"
+          as="image"
+          href="https://res.cloudinary.com/hztii11y/image/upload/f_auto,q_auto:best,w_1080,c_limit,e_sharpen:90/v1794412352/hero.jpg"
+          media="(max-width: 640px)"
+          fetchPriority="high"
+        />
+        <link
+          rel="preload"
+          as="image"
+          href="https://res.cloudinary.com/hztii11y/image/upload/f_auto,q_auto:best,w_2400,c_limit,e_sharpen:85/v1794412352/hero.jpg"
+          media="(min-width: 641px)"
+          fetchPriority="high"
+        />
+      </head>
       <body className="flex flex-col min-h-screen font-sans">
         <VantaBackground>
           <Navbar />

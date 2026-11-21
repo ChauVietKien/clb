@@ -39,12 +39,8 @@ export default function Hero() {
         </div>
       </motion.div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
-        className="w-full max-w-6xl mx-auto px-3 sm:px-6"
-      >
+      {/* Khung ảnh Hero hiển thị tĩnh 100% (bỏ opacity: 0) để đạt điểm LCP cao nhất */}
+      <div className="w-full max-w-6xl mx-auto px-3 sm:px-6">
         <div className="w-full h-[260px] sm:h-[420px] md:h-[580px] lg:h-[720px] overflow-hidden relative rounded-2xl sm:rounded-3xl shadow-xl shadow-black/50 bg-[#520b12]">
           <picture className="w-full h-full">
             {/* Mobile (< 640px): Tối ưu Retina 2x/3x (1080px), độ nét cao e_sharpen:90, tải tức thì ~220KB */}
@@ -78,7 +74,7 @@ export default function Hero() {
         <p className="text-center text-xs sm:text-sm md:text-base font-semibold tracking-wide text-amber-200/90 mt-4 sm:mt-5 drop-shadow-[0_1px_4px_rgba(0,0,0,0.6)]">
           Tuổi Trẻ Hướng Phật <br /> Kết Nối Yêu Thương — Tiếp Nối Hành Trình
         </p>
-      </motion.div>
+      </div>
     </section>
   );
 }
