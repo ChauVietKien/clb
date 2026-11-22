@@ -114,7 +114,7 @@ export default function GalleryLightbox({ isOpen, currentIndex, items, onClose, 
             fill
             priority
             placeholder="blur"
-            blurDataURL={getCloudinaryUrl(currentItem.src, { width: 900, quality: "auto:good" })}
+            blurDataURL={getCloudinaryUrl(currentItem.src, { width: 600, quality: "auto:good" })}
             sizes="(max-width: 1024px) 95vw, 1200px"
             className="object-contain drop-shadow-2xl select-none pointer-events-none"
             draggable={false}
