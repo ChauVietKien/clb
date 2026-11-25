@@ -2,7 +2,20 @@ import React from "react";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import { Geist_Mono, Noto_Serif } from "next/font/google";
 import VantaBackground from "@/components/layout/VantaBackground";
+
+const notoSerif = Noto_Serif({
+  subsets: ["vietnamese", "latin"],
+  display: "swap",
+  variable: "--font-noto-serif",
+});
+
+const geistMono = Geist_Mono({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-geist-mono",
+});
 
 export const metadata = {
   metadataBase: new URL(
@@ -61,9 +74,9 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="vi" className="scroll-smooth">
+    <html lang="vi" className={`${notoSerif.variable} ${geistMono.variable} scroll-smooth antialiased`}>
       <head>
-        {/* Preload ảnh Hero theo kích thước thiết bị để đạt LCP nhanh nhất */}
+        {/* Preload ảnh Hero khớp chính xác 3 breakpoint của Hero.jsx */}
         <link
           rel="preload"
           as="image"
@@ -74,8 +87,15 @@ export default function RootLayout({ children }) {
         <link
           rel="preload"
           as="image"
+          href="https://res.cloudinary.com/hztii11y/image/upload/f_auto,q_auto:best,w_1600,c_limit,e_sharpen:85/v1794412352/hero.jpg"
+          media="(min-width: 641px) and (max-width: 1024px)"
+          fetchPriority="high"
+        />
+        <link
+          rel="preload"
+          as="image"
           href="https://res.cloudinary.com/hztii11y/image/upload/f_auto,q_auto:best,w_2400,c_limit,e_sharpen:85/v1794412352/hero.jpg"
-          media="(min-width: 641px)"
+          media="(min-width: 1025px)"
           fetchPriority="high"
         />
       </head>

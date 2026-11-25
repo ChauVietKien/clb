@@ -5,7 +5,7 @@ export default function Benefits() {
   return (
     <section className="py-8 sm:py-10 bg-transparent text-center overflow-hidden">
       <ScrollReveal>
-        <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-amber-300 drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
+        <h2 className="text-lg sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4 text-amber-300 drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
           Ý nghĩa tham gia
         </h2>
         <div className="space-y-2.5 max-w-2xl mx-auto px-4 text-left">

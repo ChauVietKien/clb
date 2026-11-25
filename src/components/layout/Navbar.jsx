@@ -52,7 +52,7 @@ export default function Navbar() {
 
   return (
     <nav className="backdrop-blur-none sm:backdrop-blur-sm bg-black/25 sm:bg-black/20 border-b border-amber-400/15 shadow-sm fixed w-full z-30 top-0 left-0 transition-colors">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-30 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <Link

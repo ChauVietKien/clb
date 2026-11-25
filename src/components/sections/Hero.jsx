@@ -12,27 +12,28 @@ export default function Hero() {
         className="flex flex-col items-center text-center px-2 sm:px-4 w-full"
       >
         <div className="flex flex-col items-center w-full max-w-full">
-          {/* Eyebrow → Title (2 dòng mobile, 1 dòng sm+) → Description */}
+          {/* Eyebrow → Title (2 dòng mobile, 1 dòng xl+) → Description */}
           <h1 className="mb-2.5 sm:mb-4 flex flex-col items-center justify-center text-center leading-tight w-full">
-            <span className="text-[10px] sm:text-xs md:text-sm font-semibold uppercase tracking-[0.2em] text-amber-200/80 mb-1.5 sm:mb-2">
+            <span className="text-[9.5px] sm:text-xs md:text-sm font-semibold uppercase tracking-[0.2em] text-amber-200/80 mb-1.5 sm:mb-2">
               Chào Mừng Đến Với
             </span>
-            <span className="font-extrabold text-amber-300 tracking-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)] leading-snug sm:whitespace-nowrap text-center">
-              <span className="block sm:inline whitespace-nowrap text-[1.35rem] sm:text-3xl md:text-4xl lg:text-[2.75rem]">
-                CLB Thanh Thiếu Niên Phật tử
+            <span className="font-extrabold text-amber-300 tracking-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)] leading-snug text-center max-w-full px-1">
+              <span className="block xl:inline text-[1.2rem] sm:text-3xl md:text-4xl xl:text-[2.35rem]">
+                CLB Thanh Thiếu Niên{" "}
+                <span className="whitespace-nowrap">Phật tử</span>
               </span>
-              <span className="hidden sm:inline text-3xl md:text-4xl lg:text-[2.75rem]">
-                {" "}
-                —{" "}
+              <span className="hidden xl:inline xl:text-[2.35rem]">
+                {" — "}
               </span>
-              <span className="block sm:inline whitespace-nowrap text-[1.35rem] sm:text-3xl md:text-4xl lg:text-[2.75rem]">
-                Chùa Châu Hoằng Liên Xã
+              <span className="block xl:inline text-[1.2rem] sm:text-3xl md:text-4xl xl:text-[2.35rem]">
+                Chùa Châu Hoằng{" "}
+                <span className="whitespace-nowrap">Liên Xã</span>
               </span>
             </span>
           </h1>
 
           {/* Description: luôn nhỏ hơn title */}
-          <p className="text-[0.75rem] sm:text-sm md:text-base max-w-xs sm:max-w-xl text-center mb-5 sm:mb-8 text-gray-200/85 font-normal leading-relaxed px-4">
+          <p className="text-xs sm:text-sm md:text-base max-w-xs sm:max-w-xl text-center mb-5 sm:mb-8 text-gray-200/85 font-normal leading-relaxed px-4">
             Không gian kết nối với các bạn trẻ, cùng học hỏi, sinh hoạt và góp
             phần phụng sự trong các hoạt động tại chùa.
           </p>

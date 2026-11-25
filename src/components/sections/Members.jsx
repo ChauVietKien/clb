@@ -13,7 +13,7 @@ export default function Members() {
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.6 }}
       >
-        <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-amber-300 drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
+        <h2 className="text-lg sm:text-2xl md:text-3xl font-bold mb-4 text-amber-300 drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
           Ban Điều Hành
         </h2>
       </motion.div>
@@ -36,13 +36,13 @@ export default function Members() {
             loading="lazy"
           />
         </div>
-        <span className="inline-block px-3 py-0.5 rounded-full text-xs font-semibold bg-amber-500/30 sm:bg-amber-500/20 text-amber-300 border border-amber-400/40 mb-1.5 backdrop-blur-none sm:backdrop-blur-xs">
+        <span className="inline-block px-3 py-0.5 rounded-full text-[11px] sm:text-xs font-semibold bg-amber-500/30 sm:bg-amber-500/20 text-amber-300 border border-amber-400/40 mb-1.5 backdrop-blur-none sm:backdrop-blur-xs">
           {advisor.role}
         </span>
-        <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)]">
+        <h3 className="text-base sm:text-xl md:text-2xl font-bold text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)]">
           {advisor.name}
         </h3>
-        <p className="text-amber-100/90 font-medium text-xs sm:text-sm mt-0.5 drop-shadow-[0_1px_3px_rgba(0,0,0,0.5)]">
+        <p className="text-amber-100/90 font-medium text-[11px] sm:text-sm mt-0.5 drop-shadow-[0_1px_3px_rgba(0,0,0,0.5)]">
           {advisor.title}
         </p>
       </motion.div>
@@ -50,7 +50,7 @@ export default function Members() {
       {/* Divider with label */}
       <div className="flex items-center justify-center max-w-xl mx-auto px-4 mb-6 sm:mb-8">
         <div className="h-px bg-gradient-to-r from-transparent via-amber-400/40 to-transparent flex-1" />
-        <span className="px-3 text-xs sm:text-sm uppercase tracking-wider text-amber-200/85 font-semibold drop-shadow-[0_1px_3px_rgba(0,0,0,0.6)]">
+        <span className="px-3 text-[11px] sm:text-sm uppercase tracking-wider text-amber-200/85 font-semibold drop-shadow-[0_1px_3px_rgba(0,0,0,0.6)]">
           Các thành viên điều phối hoạt động CLB
         </span>
         <div className="h-px bg-gradient-to-r from-transparent via-amber-400/40 to-transparent flex-1" />
@@ -79,10 +79,10 @@ export default function Members() {
                 loading="lazy"
               />
             </div>
-            <h3 className="text-base sm:text-lg md:text-xl font-bold text-white drop-shadow-[0_1px_4px_rgba(0,0,0,0.6)]">
+            <h3 className="text-sm sm:text-lg md:text-xl font-bold text-white drop-shadow-[0_1px_4px_rgba(0,0,0,0.6)]">
               {member.name}
             </h3>
-            <p className="text-amber-300 font-medium text-xs sm:text-sm mt-0.5 sm:mt-1 drop-shadow-[0_1px_3px_rgba(0,0,0,0.5)]">
+            <p className="text-amber-300 font-medium text-[11px] sm:text-sm mt-0.5 sm:mt-1 drop-shadow-[0_1px_3px_rgba(0,0,0,0.5)]">
               {member.role}
             </p>
           </div>

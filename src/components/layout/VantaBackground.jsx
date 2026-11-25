@@ -1,5 +1,6 @@
 "use client";
 
+import { isInAppWebView } from "@/lib/utils";
 import { useEffect, useRef } from "react";
 
 export default function VantaBackground({ children }) {
@@ -9,16 +10,9 @@ export default function VantaBackground({ children }) {
     let effect = null;
     let isMounted = true;
 
-    // Phát hiện trình duyệt nhúng Webview (Facebook In-App Browser, Zalo, Instagram, Android Webview)
+    // Phát hiện trình duyệt nhúng Webview (Facebook In-App Browser, Zalo, Instagram, TikTok, Android Webview)
     // Các ứng dụng này bóp nghẹt GPU nên tự động chuyển sang nền tĩnh cao cấp để đạt 60fps mượt 100%
-    const isWebView =
-      typeof window !== "undefined" &&
-      (/; wv\b/i.test(navigator.userAgent) ||
-        /FBAN|FBAV|FB_IAB|FB4A|Instagram|Zalo|Line\/|TikTok|MicroMessenger/i.test(
-          navigator.userAgent
-        ));
-
-    if (isWebView) {
+    if (isInAppWebView()) {
       return; // Không nạp Three.js / Vanta, loại bỏ hoàn toàn độ trễ INP trên Webview
     }
 

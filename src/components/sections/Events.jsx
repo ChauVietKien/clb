@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
+import { useSyncExternalStore } from "react";
 import { events } from "@/data/events";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -10,8 +10,19 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import {
+  buildCloudinarySrcSet,
+  emptySubscribe,
+  getCloudinaryUrl,
+  handleCloudinaryFallback,
+  isConstrainedDevice,
+} from "@/lib/utils";
+
+const EVENT_SIZES = "(max-width: 640px) 92vw, (max-width: 1024px) 46vw, 360px";
 
 export default function Events() {
+  const isConstrained = useSyncExternalStore(emptySubscribe, isConstrainedDevice, () => false);
+
   return (
     <section className="py-8 sm:py-10 bg-transparent text-center overflow-hidden">
       <motion.div
@@ -20,7 +31,7 @@ export default function Events() {
         viewport={{ once: true, amount: 0, margin: "0px 0px -200px 0px" }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
-        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 sm:mb-3 text-amber-300 drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
+        <h2 className="text-lg sm:text-2xl md:text-3xl font-bold mb-2 sm:mb-3 text-amber-300 drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
           Sự kiện thường niên
         </h2>
         <p className="max-w-2xl mx-auto text-xs sm:text-sm md:text-base text-amber-100/90 drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)] px-4 mb-6 sm:mb-8 md:mb-10 font-medium">
@@ -29,33 +40,49 @@ export default function Events() {
 
         {/* Bố cục đa màn hình: 1 cột (mobile) -> 2 cột (tablet/sm) -> 3 cột (desktop/lg) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
-          {events.map((item) => (
+          {events.map((item) => {
+            const src = getCloudinaryUrl(
+              item.image,
+              isConstrained ? { width: 640, quality: "auto:eco" } : { width: 680, quality: "auto:good" }
+            );
+            const srcSet = buildCloudinarySrcSet(
+              item.image,
+              isConstrained
+                ? [[480, "auto:eco"], [640, "auto:eco"]]
+                : [[480, "auto:eco"], [680, "auto:good"], [960, "auto:good"]]
+            );
+
+            return (
             <Card
               key={item.id}
               className="relative w-full h-full flex flex-col p-0 py-0 gap-0 overflow-hidden group bg-[#fff8f4]/98 dark:bg-[#151924]/98 backdrop-blur-none sm:backdrop-blur-md border border-amber-900/15 dark:border-gray-800/80 rounded-xl sm:rounded-2xl shadow-sm hover:shadow-md hover:border-amber-300/80 dark:hover:border-amber-500/50 hover:-translate-y-0.5 transition-all duration-300 max-w-md mx-auto sm:max-w-none"
             >
               {/* Ảnh bìa chuẩn tỷ lệ 16:9, tối ưu hiển thị responsive */}
               <div className="relative w-full aspect-[16/9] overflow-hidden bg-gray-900">
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
-                  loading="lazy"
-                />
+                <picture className="block w-full h-full">
+                  <img
+                    src={src}
+                    srcSet={srcSet}
+                    sizes={EVENT_SIZES}
+                    alt={item.title}
+                    loading="lazy"
+                    decoding="async"
+                    onError={(e) => handleCloudinaryFallback(e, item.image, 540)}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                  />
+                </picture>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent pointer-events-none" />
               </div>
 
               {/* Khối thông tin: tự co giãn đều hàng (flex-1), chữ co theo kích thước thiết bị */}
               <CardHeader className="p-3.5 sm:p-4 md:p-4.5 gap-1.5 sm:gap-2 flex-1 flex flex-col justify-start">
                 <div className="flex items-start justify-between gap-2 sm:gap-2.5 w-full">
-                  <CardTitle className="text-[15px] sm:text-base lg:text-[17px] font-bold text-gray-900 dark:text-gray-100 leading-snug">
+                  <CardTitle className="text-sm sm:text-base lg:text-[17px] font-bold text-gray-900 dark:text-gray-100 leading-snug">
                     {item.title}
                   </CardTitle>
                   <Badge
                     variant="secondary"
-                    className="shrink-0 text-[11px] sm:text-xs font-semibold px-2 sm:px-2.5 py-0.5 sm:py-1 bg-amber-100 text-amber-900 border border-amber-300/80 dark:bg-amber-950/70 dark:text-amber-300 dark:border-amber-800 shadow-xs whitespace-nowrap"
+                    className="shrink-0 text-[10px] sm:text-xs font-semibold px-2 sm:px-2.5 py-0.5 sm:py-1 bg-amber-100 text-amber-900 border border-amber-300/80 dark:bg-amber-950/70 dark:text-amber-300 dark:border-amber-800 shadow-xs whitespace-nowrap"
                   >
                     {item.time}
                   </Badge>
@@ -66,7 +93,8 @@ export default function Events() {
                 </CardDescription>
               </CardHeader>
             </Card>
-          ))}
+            );
+          })}
         </div>
       </motion.div>
     </section>

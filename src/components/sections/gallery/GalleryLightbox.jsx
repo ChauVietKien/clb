@@ -1,14 +1,15 @@
 "use client";
 
-import { getCloudinaryUrl } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, X, ZoomIn, ZoomOut } from "lucide-react";
-import Image from "next/image";
 import { useEffect } from "react";
+import LightboxImage from "./LightboxImage";
 import { useImageZoom } from "./useImageZoom";
 
-export default function GalleryLightbox({ isOpen, currentIndex, items, onClose, onPrev, onNext }) {
+export default function GalleryLightbox({ isOpen, currentIndex, previewSrc, items, onClose, onPrev, onNext }) {
   const currentItem = items[currentIndex];
+  const prevItem = items[currentIndex > 0 ? currentIndex - 1 : items.length - 1];
+  const nextItem = items[currentIndex < items.length - 1 ? currentIndex + 1 : 0];
   const {
     scale, isPinching, x, y, maxDragX, maxDragY, imageContainerRef,
     resetZoom, toggleZoom, handleTouchStart, handleTouchMove, handleTouchEnd,
@@ -108,17 +109,7 @@ export default function GalleryLightbox({ isOpen, currentIndex, items, onClose, 
           onDoubleClick={toggleZoom}
           className={`relative w-full h-full flex items-center justify-center ${scale > 1.05 ? "cursor-grab active:cursor-grabbing" : "cursor-zoom-in"}`}
         >
-          <Image
-            src={getCloudinaryUrl(currentItem.src, { width: 2800, quality: "100", sharpen: 75 })}
-            alt={currentItem.alt || `Hoạt động ${currentItem.id}`}
-            fill
-            priority
-            placeholder="blur"
-            blurDataURL={getCloudinaryUrl(currentItem.src, { width: 600, quality: "auto:good" })}
-            sizes="(max-width: 1024px) 95vw, 1200px"
-            className="object-contain drop-shadow-2xl select-none pointer-events-none"
-            draggable={false}
-          />
+          <LightboxImage item={currentItem} previewSrc={previewSrc} prevItem={prevItem} nextItem={nextItem} />
         </motion.div>
       </div>
 
